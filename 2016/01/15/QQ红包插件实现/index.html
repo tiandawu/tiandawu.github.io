@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>QQ抢红包插件实现 | Devbird&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="之前跟那些20年的单身狗抢红包是屡战屡败。再加上最近群里面发红包发的厉害，又想到快要过年了，到时候还不知道群里要发好多红包，所以我将之前在网上宕的一份微信抢红包的代码修改了一下，实现了QQ抢红包！可以支持抢QQ拼手气红包，普通红包，口令红包，现在再也不怕20年单身手速`的人跟我抢红包了！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QQ抢红包插件实现">
+<meta property="og:url" content="http://tiandawu.github.io/2016/01/15/QQ红包插件实现/index.html">
+<meta property="og:site_name" content="Devbird's blog">
+<meta property="og:description" content="之前跟那些20年的单身狗抢红包是屡战屡败。再加上最近群里面发红包发的厉害，又想到快要过年了，到时候还不知道群里要发好多红包，所以我将之前在网上宕的一份微信抢红包的代码修改了一下，实现了QQ抢红包！可以支持抢QQ拼手气红包，普通红包，口令红包，现在再也不怕20年单身手速`的人跟我抢红包了！">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1440183-6788c271c29e0d39.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1440183-f6a3dc7fabbd2d3b.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1440183-936802d3cea53f84.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1440183-9bad264ee6690000.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-07-10T16:03:29.626Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="QQ抢红包插件实现">
+<meta name="twitter:description" content="之前跟那些20年的单身狗抢红包是屡战屡败。再加上最近群里面发红包发的厉害，又想到快要过年了，到时候还不知道群里要发好多红包，所以我将之前在网上宕的一份微信抢红包的代码修改了一下，实现了QQ抢红包！可以支持抢QQ拼手气红包，普通红包，口令红包，现在再也不怕20年单身手速`的人跟我抢红包了！">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1440183-6788c271c29e0d39.gif?imageMogr2/auto-orient/strip">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.png" />
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
+    
+    
+    
+    
+
+</head>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Devbird&#39;s blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">主页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Articles',
+            PAGES: 'Pages',
+            CATEGORIES: 'Catégories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">主页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">devbird</h2>
+            <h3 id="title">Android Developer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Chongqing, China</span>
+            <a id="follow" target="_blank" href="https://github.com/tiandawu/">SUIVRE</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                5
+                <span>文章</span>
+                <!-- 
+                <span>Articles</span>
+                -->
+            </div>
+            <div class="article-info-block">
+                4
+                <span>标签</span>
+                <!-- 
+                <span>Tags</span>
+                -->
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/tiandawu/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="http://weibo.com/2983214487/" target="_blank" title="weibo" class=tooltip>
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="http://www.jianshu.com/users/6416437b4d88/" target="_blank" title="book" class=tooltip>
+                            <i class="fa fa-book"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-QQ红包插件实现" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            QQ抢红包插件实现
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/01/15/QQ红包插件实现/">
+            <time datetime="2016-01-15T02:43:11.000Z" itemprop="datePublished">2016-01-15</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;之前跟那些20年的单身狗抢红包是屡战屡败。再加上最近群里面发红包发的厉害，又想到快要过年了，到时候还不知道群里要发好多红包，所以我将之前在网上宕的一份微信抢红包的代码修改了一下，实现了QQ抢红包！可以支持抢QQ<strong>拼手气红包</strong>，<strong>普通红包</strong>，<strong>口令红包</strong>，现在再也不怕<strong>20年单身手速</strong>的人跟我抢红包了！</p>
+<h3 id="先看测试效果图："><a href="#先看测试效果图：" class="headerlink" title="先看测试效果图："></a>先看测试效果图：</h3><h5 id="1-抢QQ口令红包："><a href="#1-抢QQ口令红包：" class="headerlink" title="1. 抢QQ口令红包："></a>1. 抢QQ<strong>口令红包：</strong></h5><p><img src="http://upload-images.jianshu.io/upload_images/1440183-6788c271c29e0d39.gif?imageMogr2/auto-orient/strip" alt="口令红包.gif">  </p>
+<p>可以看见，只要红包一发出，自动填写口令并发出，帮你将红包抢到手！</p>
+<h5 id="2-抢QQ拼手气红包："><a href="#2-抢QQ拼手气红包：" class="headerlink" title="2. 抢QQ拼手气红包："></a>2. 抢QQ<strong>拼手气红包：</strong></h5><p><img src="http://upload-images.jianshu.io/upload_images/1440183-f6a3dc7fabbd2d3b.gif?imageMogr2/auto-orient/strip" alt="拼手气红包.gif">  </p>
+<p>拼手气红包也是一样，只要红包一发出，自动帮你把红包抢到手，是不是很爽的感觉？  </p>
+<h5 id="3-抢QQ好友发送的红包："><a href="#3-抢QQ好友发送的红包：" class="headerlink" title="3. 抢QQ好友发送的红包："></a>3. 抢QQ好友发送的<strong>红包：</strong></h5><p><img src="http://upload-images.jianshu.io/upload_images/1440183-936802d3cea53f84.gif?imageMogr2/auto-orient/strip" alt="好友发送的QQ口令红包.gif">  </p>
+<p>只要好友或者群里的人把红包一发出，就会第一时间让你抢到红包！<br>所以只要在群里面开启插件，抢红包从来都是百发百中！  </p>
+<p>好了废话不多说了，也不吹嘘有多牛多好了，下面直接给大家上<strong>代码：</strong></p>
+<p><strong>MainActivity:</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*MainActivity中的代码基本没改变：*/</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">   <span class="keyword">private</span> <span class="keyword">final</span> Intent mAccessibleIntent =</div><div class="line">           <span class="keyword">new</span> Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);</div><div class="line">   <span class="keyword">private</span> Button switchPlugin;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">       <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">       setContentView(R.layout.activity_main);</div><div class="line">       switchPlugin = (Button) findViewById(R.id.button_accessible);</div><div class="line">       updateServiceStatus();</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onButtonClicked</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">       startActivity(mAccessibleIntent);</div><div class="line">   &#125;</div><div class="line"></div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">super</span>.onResume();</div><div class="line">       updateServiceStatus();</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">updateServiceStatus</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">boolean</span> serviceEnabled = <span class="keyword">false</span>;</div><div class="line"></div><div class="line">       AccessibilityManager accessibilityManager =</div><div class="line">               (AccessibilityManager) getSystemService(Context.ACCESSIBILITY_SERVICE);</div><div class="line">       List&lt;AccessibilityServiceInfo&gt; accessibilityServices =</div><div class="line">               accessibilityManager.getEnabledAccessibilityServiceList(AccessibilityServiceInfo.FEEDBACK_GENERIC);</div><div class="line">       <span class="keyword">for</span> (AccessibilityServiceInfo info : accessibilityServices) &#123;</div><div class="line">           <span class="keyword">if</span> (info.getId().equals(getPackageName() + <span class="string">"/.QQHongbaoService"</span>)) &#123;</div><div class="line">               serviceEnabled = <span class="keyword">true</span>;</div><div class="line">               <span class="keyword">break</span>;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       <span class="keyword">if</span> (serviceEnabled) &#123;</div><div class="line">           switchPlugin.setText(<span class="string">"关闭插件"</span>);</div><div class="line">           <span class="comment">// Prevent screen from dimming</span></div><div class="line">           getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);</div><div class="line">       &#125; <span class="keyword">else</span> &#123;</div><div class="line">           switchPlugin.setText(<span class="string">"开启插件"</span>);</div><div class="line">           getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里是MainActivity中的全部代码，是不是很少的样子，主要是实现了一个按钮去开启<strong>ACCESSIBILITY_SERVICE</strong>。这个插件主要就是借助<strong>AccessibilityService</strong>这个服务来实现。所以剩下的代码就都在这个服务中了！  </p>
+<p><strong>QQHongbaoService：</strong></p>
+<p><pre><code>public class QQHongbaoService extends AccessibilityService {</code></pre></p>
+<pre><code>private static final String WECHAT_OPEN_EN = &quot;Open&quot;;
+private static final String WECHAT_OPENED_EN = &quot;You&apos;ve opened&quot;;
+private final static String QQ_DEFAULT_CLICK_OPEN = &quot;点击拆开&quot;;
+private final static String QQ_HONG_BAO_PASSWORD = &quot;口令红包&quot;;
+private final static String QQ_CLICK_TO_PASTE_PASSWORD = &quot;点击输入口令&quot;;
+private boolean mLuckyMoneyReceived;
+private String lastFetchedHongbaoId = null;
+private long lastFetchedTime = 0;
+private static final int MAX_CACHE_TOLERANCE = 5000;
+private AccessibilityNodeInfo rootNodeInfo;
+private List&lt;AccessibilityNodeInfo&gt; mReceiveNode;
+
+@TargetApi(Build.VERSION_CODES.KITKAT)
+public void recycle(AccessibilityNodeInfo info) {
+    if (info.getChildCount() == 0) {
+
+        if (info.getText() != null &amp;&amp; info.getText().toString().equals(QQ_CLICK_TO_PASTE_PASSWORD)) {
+
+            info.getParent().performAction(AccessibilityNodeInfo.ACTION_CLICK);
+
+        }
+
+        if (info.getClassName().toString().equals(&quot;android.widget.Button&quot;) &amp;&amp; info.getText().toString().equals(&quot;发送&quot;)) {
+            info.performAction(AccessibilityNodeInfo.ACTION_CLICK);
+        }
+
+    } else {
+        for (int i = 0; i &lt; info.getChildCount(); i++) {
+            if (info.getChild(i) != null) {
+                recycle(info.getChild(i));
+            }
+        }
+    }
+}
+
+@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+@Override
+public void onAccessibilityEvent(AccessibilityEvent event) {
+
+    this.rootNodeInfo = event.getSource();
+
+    if (rootNodeInfo == null) {
+        return;
+    }
+
+    mReceiveNode = null;
+
+    checkNodeInfo();
+
+
+    /* 如果已经接收到红包并且还没有戳开 */
+    if (mLuckyMoneyReceived &amp;&amp; (mReceiveNode != null)) {
+        int size = mReceiveNode.size();
+        if (size &gt; 0) {
+
+            String id = getHongbaoText(mReceiveNode.get(size - 1));
+
+            long now = System.currentTimeMillis();
+
+            if (this.shouldReturn(id, now - lastFetchedTime))
+                return;
+
+            lastFetchedHongbaoId = id;
+            lastFetchedTime = now;
+
+            AccessibilityNodeInfo cellNode = mReceiveNode.get(size - 1);
+
+            if (cellNode.getText().toString().equals(&quot;口令红包已拆开&quot;)) {
+                return;
+            }
+
+            cellNode.getParent().performAction(AccessibilityNodeInfo.ACTION_CLICK);
+
+            if (cellNode.getText().toString().equals(QQ_HONG_BAO_PASSWORD)) {
+
+                AccessibilityNodeInfo rowNode = getRootInActiveWindow();
+                if (rowNode == null) {
+                    Log.e(TAG, &quot;noteInfo is　null&quot;);
+                    return;
+                } else {
+                    recycle(rowNode);
+                }
+            }
+
+            mLuckyMoneyReceived = false;
+
+        }
+    }
+
+}
+
+
+/**
+ * 检查节点信息
+ */
+private void checkNodeInfo() {
+
+    if (rootNodeInfo == null) {
+        return;
+    }
+
+     /* 聊天会话窗口，遍历节点匹配“点击拆开”，“口令红包”，“点击输入口令” */
+    List&lt;AccessibilityNodeInfo&gt; nodes1 = this.findAccessibilityNodeInfosByTexts(this.rootNodeInfo, new String[]{
+            QQ_DEFAULT_CLICK_OPEN, QQ_HONG_BAO_PASSWORD, QQ_CLICK_TO_PASTE_PASSWORD, &quot;发送&quot;});
+
+    if (!nodes1.isEmpty()) {
+        String nodeId = Integer.toHexString(System.identityHashCode(this.rootNodeInfo));
+        if (!nodeId.equals(lastFetchedHongbaoId)) {
+            mLuckyMoneyReceived = true;
+            mReceiveNode = nodes1;
+        }
+        return;
+    }
+
+}
+
+
+/**
+ * 将节点对象的id和红包上的内容合并
+ * 用于表示一个唯一的红包
+ *
+ * @param node 任意对象
+ * @return 红包标识字符串
+ */
+private String getHongbaoText(AccessibilityNodeInfo node) {
+    /* 获取红包上的文本 */
+    String content;
+    try {
+        AccessibilityNodeInfo i = node.getParent().getChild(0);
+        content = i.getText().toString();
+    } catch (NullPointerException npe) {
+        return null;
+    }
+
+    return content;
+}
+
+
+/**
+ * 判断是否返回,减少点击次数
+ * 现在的策略是当红包文本和缓存不一致时,戳
+ * 文本一致且间隔大于MAX_CACHE_TOLERANCE时,戳
+ *
+ * @param id       红包id
+ * @param duration 红包到达与缓存的间隔
+ * @return 是否应该返回
+ */
+private boolean shouldReturn(String id, long duration) {
+    // ID为空
+    if (id == null) return true;
+
+    // 名称和缓存不一致
+    if (duration &lt; MAX_CACHE_TOLERANCE &amp;&amp; id.equals(lastFetchedHongbaoId)) {
+        return true;
+    }
+
+    return false;
+}
+
+/**
+ * 批量化执行AccessibilityNodeInfo.findAccessibilityNodeInfosByText(text).
+ * 由于这个操作影响性能,将所有需要匹配的文字一起处理,尽早返回
+ *
+ * @param nodeInfo 窗口根节点
+ * @param texts    需要匹配的字符串们
+ * @return 匹配到的节点数组
+ */
+private List&lt;AccessibilityNodeInfo&gt; findAccessibilityNodeInfosByTexts(AccessibilityNodeInfo nodeInfo, String[] texts) {
+    for (String text : texts) {
+        if (text == null) continue;
+
+        List&lt;AccessibilityNodeInfo&gt; nodes = nodeInfo.findAccessibilityNodeInfosByText(text);
+
+        if (!nodes.isEmpty()) {
+            if (text.equals(WECHAT_OPEN_EN) &amp;&amp; !nodeInfo.findAccessibilityNodeInfosByText(WECHAT_OPENED_EN).isEmpty()) {
+                continue;
+            }
+            return nodes;
+        }
+    }
+    return new ArrayList&lt;&gt;();
+}
+
+@Override
+public void onInterrupt() {
+
+}
+</code></pre><p>}<br><br><strong>QQHongbaoService</strong>的全部代码也在这里，代码不多。首先，在这个服务中主要是通过<strong>findAccessibilityNodeInfosByText</strong>这个方法去获我们需要的节点；然后，用  <strong>performAction(AccessibilityNodeInfo.ACTION_CLICK)</strong> 这个方法去点击红包节点，关键思路大概就是这样！<br>另外如果是口令红包，我们需要先按照上面的步骤将红包戳开，然后通过<strong>performAction(AccessibilityNodeInfo.ACTION_CLICK)</strong>去<strong>点击输入口令</strong>，最后再通过点击去发送即可实现！</p>
+<p><strong>QQHongbaoService</strong>需要在<strong>AndroidManifest.xml</strong>文件中注册，<br>注册的<application>节点如下图：<br><img src="http://upload-images.jianshu.io/upload_images/1440183-9bad264ee6690000.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></application></p>
+<p>总体来看，只是将微信抢红包的代码做了少量的修改，在这里要感谢各位大神对微信抢红包源码的贡献！最后也希望这篇文章能给大家有所帮助，在抢红包大战中虐死单身狗，再也不怕你20年的单身手速了！！！  </p>
+<h4 id="下面是源码地址："><a href="#下面是源码地址：" class="headerlink" title="下面是源码地址："></a>下面是源码地址：</h4><p>点击：<a href="https://github.com/tiandawu/QQHongbao" target="_blank" rel="external"><font color="#0000FF">下载地址</font></a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://tiandawu.github.io/2016/01/15/QQ红包插件实现/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://tiandawu.github.io/2016/01/15/QQ红包插件实现/">去评论</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2016/01/16/Android studio常见错误/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    怎么解决Android studio导入项目卡死
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2016/01/14/BuildMyBlog/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Hexo+github搭建个人博客</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div class="ds-thread" data-thread-key="2016/01/15/QQ红包插件实现/" data-title="QQ抢红包插件实现" data-url="http://tiandawu.github.io/2016/01/15/QQ红包插件实现/"></div>
+    <style>
+        #ds-thread #ds-reset .ds-textarea-wrapper {
+            background: none;
+        }
+        #ds-reset .ds-avatar img {
+            box-shadow: none;
+        }
+        #ds-reset .ds-gradient-bg {
+            background: #f7f7f7;
+        }
+        #ds-thread #ds-reset li.ds-tab a {
+            border-radius: 3px;
+        }
+        #ds-thread #ds-reset .ds-post-button {
+            color: white;
+            border: none;
+            box-shadow: none;
+            background: #d32;
+            text-shadow: none;
+            font-weight: normal;
+            font-family: 'Microsoft Yahei';
+        }
+        #ds-thread #ds-reset .ds-post-button:hover {
+            color: white;
+            background: #DE594C;
+        }
+        #ds-thread #ds-reset .ds-post-button:active {
+            background: #d32;
+        }
+        #ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current {
+            color: white;
+            background: #d32;
+            box-shadow: none;
+            text-shadow: none;
+            font-weight: normal;
+        }
+    </style>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/06/05/Android中实现自定义XMPP消息包收发/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2016/06/05/Android中实现自定义XMPP消息包收发/" class="title">Android中实现自定义XMPP消息包收发</a></p>
+                            <p class="item-date"><time datetime="2016-06-05T01:46:14.000Z" itemprop="datePublished">2016-06-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/02/27/正则表达式学习笔记/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/php/">php</a></p>
+                            <p class="item-title"><a href="/2016/02/27/正则表达式学习笔记/" class="title">正则表达式学习笔记</a></p>
+                            <p class="item-date"><time datetime="2016-02-27T06:40:35.000Z" itemprop="datePublished">2016-02-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/01/16/Android studio常见错误/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/01/16/Android studio常见错误/" class="title">怎么解决Android studio导入项目卡死</a></p>
+                            <p class="item-date"><time datetime="2016-01-16T09:29:24.000Z" itemprop="datePublished">2016-01-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/01/15/QQ红包插件实现/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2016/01/15/QQ红包插件实现/" class="title">QQ抢红包插件实现</a></p>
+                            <p class="item-date"><time datetime="2016-01-15T02:43:11.000Z" itemprop="datePublished">2016-01-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/01/14/BuildMyBlog/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://i.imgur.com/aBvSCNs.jpg)" alt="Hexo+github搭建个人博客" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/01/14/BuildMyBlog/" class="title">Hexo+github搭建个人博客</a></p>
+                            <p class="item-date"><time datetime="2016-01-14T02:43:11.000Z" itemprop="datePublished">2016-01-14</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMPP/">XMPP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/踩过的坑/">踩过的坑</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/XMPP/" style="font-size: 10px;">XMPP</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/踩过的坑/" style="font-size: 10px;">踩过的坑</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">友情链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+           &copy; 2016 devbird<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> | Theme by <a href="http://github.com/ppoffice">icarus</a> | <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259875724'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1259875724%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'true'};
+    (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+
+
+
+    
+        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
+    
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
