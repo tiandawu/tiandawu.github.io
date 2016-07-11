@@ -4,33 +4,33 @@ date: 2016-01-15 10:43:11
 tags: Android
 comments: true
 categories: Android
-description: 之前跟那些20年的单身狗抢红包是屡战屡败。再加上最近群里面发红包发的厉害，又想到快要过年了，到时候还不知道群里要发好多红包，所以我将之前在网上宕的一份微信抢红包的代码修改了一下，实现了QQ抢红包！可以支持抢QQ拼手气红包，普通红包，口令红包，现在再也不怕20年单身手速`的人跟我抢红包了！
+banner: http://i.imgur.com/Jh7Gbo7.png
 ---
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;之前跟那些20年的单身狗抢红包是屡战屡败。再加上最近群里面发红包发的厉害，又想到快要过年了，到时候还不知道群里要发好多红包，所以我将之前在网上宕的一份微信抢红包的代码修改了一下，实现了QQ抢红包！可以支持抢QQ**拼手气红包**，**普通红包**，**口令红包**，现在再也不怕**20年单身手速**的人跟我抢红包了！
+<!--more-->
 ### 先看测试效果图：
 ##### 1. 抢QQ**口令红包：**    
-![口令红包.gif](http://upload-images.jianshu.io/upload_images/1440183-6788c271c29e0d39.gif?imageMogr2/auto-orient/strip)  
+![](http://i.imgur.com/lR5KIQd.gif)
 
 可以看见，只要红包一发出，自动填写口令并发出，帮你将红包抢到手！
 ##### 2. 抢QQ**拼手气红包：**
-![拼手气红包.gif](http://upload-images.jianshu.io/upload_images/1440183-f6a3dc7fabbd2d3b.gif?imageMogr2/auto-orient/strip)  
+![](http://i.imgur.com/U84NH8x.gif)
 
 拼手气红包也是一样，只要红包一发出，自动帮你把红包抢到手，是不是很爽的感觉？  
 ##### 3. 抢QQ好友发送的**红包：**  
-![好友发送的QQ口令红包.gif](http://upload-images.jianshu.io/upload_images/1440183-936802d3cea53f84.gif?imageMogr2/auto-orient/strip)  
+![](http://i.imgur.com/nH6UPxw.gif)
 
 只要好友或者群里的人把红包一发出，就会第一时间让你抢到红包！
 所以只要在群里面开启插件，抢红包从来都是百发百中！  
 
-好了废话不多说了，也不吹嘘有多牛多好了，下面直接给大家上**代码：**
+本插件主要是通过`AccessibilityService``来实现对屏幕的监控，从而实现抢红包的功能。代码比较少，下面从贴出源码来分析：
 
-
+***
 **MainActivity:**
 
-```java
+``` java
 	/*MainActivity中的代码基本没改变：*/
 	public class MainActivity extends AppCompatActivity {
-
     private final Intent mAccessibleIntent =
             new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
     private Button switchPlugin;
@@ -81,11 +81,13 @@ description: 之前跟那些20年的单身狗抢红包是屡战屡败。再加�
 
 ```
 
-这里是MainActivity中的全部代码，是不是很少的样子，主要是实现了一个按钮去开启**ACCESSIBILITY_SERVICE**。这个插件主要就是借助**AccessibilityService**这个服务来实现。所以剩下的代码就都在这个服务中了！  
+这里是MainActivity中的全部代码，是不是很少的样子，主要是实现了一个按钮去开启**ACCESSIBILITY_SERVICE**。这个插件主要就是借助**AccessibilityService**这个服务来实现。所以剩下的核心功能代码就都在这个服务中了！  
+***
+**QQHongbaoService：**  
 
-**QQHongbaoService：**
-<pre><code>public class QQHongbaoService extends AccessibilityService {
+``` java
 
+	public class QQHongbaoService extends AccessibilityService {
     private static final String WECHAT_OPEN_EN = "Open";
     private static final String WECHAT_OPENED_EN = "You've opened";
     private final static String QQ_DEFAULT_CLICK_OPEN = "点击拆开";
@@ -101,11 +103,8 @@ description: 之前跟那些20年的单身狗抢红包是屡战屡败。再加�
     @TargetApi(Build.VERSION_CODES.KITKAT)
     public void recycle(AccessibilityNodeInfo info) {
         if (info.getChildCount() == 0) {
-
             if (info.getText() != null && info.getText().toString().equals(QQ_CLICK_TO_PASTE_PASSWORD)) {
-
                 info.getParent().performAction(AccessibilityNodeInfo.ACTION_CLICK);
-
             }
 
             if (info.getClassName().toString().equals("android.widget.Button") && info.getText().toString().equals("发送")) {
@@ -158,9 +157,7 @@ description: 之前跟那些20年的单身狗抢红包是屡战屡败。再加�
                 }
 
                 cellNode.getParent().performAction(AccessibilityNodeInfo.ACTION_CLICK);
-
                 if (cellNode.getText().toString().equals(QQ_HONG_BAO_PASSWORD)) {
-
                     AccessibilityNodeInfo rowNode = getRootInActiveWindow();
                     if (rowNode == null) {
                         Log.e(TAG, "noteInfo is　null");
@@ -169,7 +166,6 @@ description: 之前跟那些20年的单身狗抢红包是屡战屡败。再加�
                         recycle(rowNode);
                     }
                 }
-
                 mLuckyMoneyReceived = false;
 
             }
@@ -273,16 +269,18 @@ description: 之前跟那些20年的单身狗抢红包是屡战屡败。再加�
     public void onInterrupt() {
 
     }
-}
-</code></pre>
-**QQHongbaoService**的全部代码也在这里，代码不多。首先，在这个服务中主要是通过**findAccessibilityNodeInfosByText**这个方法去获我们需要的节点；然后，用  **performAction(AccessibilityNodeInfo.ACTION_CLICK)** 这个方法去点击红包节点，关键思路大概就是这样！  
+	}
+
+```
+
+**QQHongbaoService**的全部代码也在这里，代码也不多。首先，在这个服务中主要是通过**findAccessibilityNodeInfosByText**这个方法去获我们需要的节点；然后，用  **performAction(AccessibilityNodeInfo.ACTION_CLICK)** 这个方法去点击红包节点，关键思路大概就是这样！  
 另外如果是口令红包，我们需要先按照上面的步骤将红包戳开，然后通过**performAction(AccessibilityNodeInfo.ACTION_CLICK)**去**点击输入口令**，最后再通过点击去发送即可实现！
-  
+***  
 **QQHongbaoService**需要在**AndroidManifest.xml**文件中注册，
 注册的<application>节点如下图：  
-![Paste_Image.png](http://upload-images.jianshu.io/upload_images/1440183-9bad264ee6690000.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://i.imgur.com/etMx6Z9.png)
 
-总体来看，只是将微信抢红包的代码做了少量的修改，在这里要感谢各位大神对微信抢红包源码的贡献！最后也希望这篇文章能给大家有所帮助，在抢红包大战中虐死单身狗，再也不怕你20年的单身手速了！！！  
-
+总体来看，只是将微信抢红包的代码做了少量的修改，在这里要感谢微信抢红包源码的贡献！最后也希望这篇文章能给大家有所帮助，在抢红包大战中百战百胜！  
+***
 #### 下面是源码地址：  
 点击：[<font color=#0000FF>下载地址</font>](https://github.com/tiandawu/QQHongbao)
