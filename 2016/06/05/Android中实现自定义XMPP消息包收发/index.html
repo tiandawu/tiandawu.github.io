@@ -5,16 +5,18 @@
     
     <title>Android中实现自定义XMPP消息包收发 | Devbird&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="在Android平台实现XMPP即时通讯主要是使用asmack这个包，asmack是XMPP协议的实现。但是asmack只能帮助我们实现一些基本消息包的收发，如果需要实现特定的自定义消息包收发需要我们自己处理。">
+    <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在Android平台实现XMPP即时通讯主要是使用asmack这个包，asmack是XMPP协议的实现。但是asmack只能帮助我们实现一些基本消息包的收发，如果需要实现特定的自定义消息包收发需要我们自己处理。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android中实现自定义XMPP消息包收发">
 <meta property="og:url" content="http://tiandawu.github.io/2016/06/05/Android中实现自定义XMPP消息包收发/index.html">
 <meta property="og:site_name" content="Devbird's blog">
-<meta property="og:description" content="在Android平台实现XMPP即时通讯主要是使用asmack这个包，asmack是XMPP协议的实现。但是asmack只能帮助我们实现一些基本消息包的收发，如果需要实现特定的自定义消息包收发需要我们自己处理。">
-<meta property="og:updated_time" content="2016-07-10T04:25:57.234Z">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在Android平台实现XMPP即时通讯主要是使用asmack这个包，asmack是XMPP协议的实现。但是asmack只能帮助我们实现一些基本消息包的收发，如果需要实现特定的自定义消息包收发需要我们自己处理。">
+<meta property="og:image" content="http://i.imgur.com/AlXNlDS.png">
+<meta property="og:updated_time" content="2016-07-11T05:00:46.003Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android中实现自定义XMPP消息包收发">
-<meta name="twitter:description" content="在Android平台实现XMPP即时通讯主要是使用asmack这个包，asmack是XMPP协议的实现。但是asmack只能帮助我们实现一些基本消息包的收发，如果需要实现特定的自定义消息包收发需要我们自己处理。">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在Android平台实现XMPP即时通讯主要是使用asmack这个包，asmack是XMPP协议的实现。但是asmack只能帮助我们实现一些基本消息包的收发，如果需要实现特定的自定义消息包收发需要我们自己处理。">
+<meta name="twitter:image" content="http://i.imgur.com/AlXNlDS.png">
     
 
     
@@ -73,7 +75,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -92,9 +94,9 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
+            CATEGORIES: 'Categories',
             TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
@@ -124,7 +126,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
     </div>
 
                 </td>
@@ -144,21 +146,21 @@
             <h2 id="name">devbird</h2>
             <h3 id="title">Android Developer</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Chongqing, China</span>
-            <a id="follow" target="_blank" href="https://github.com/tiandawu/">SUIVRE</a>
+            <a id="follow" target="_blank" href="https://github.com/tiandawu/">FOLLOW</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
                 5
                 <span>文章</span>
                 <!-- 
-                <span>Articles</span>
+                <span>posts</span>
                 -->
             </div>
             <div class="article-info-block">
                 4
                 <span>标签</span>
                 <!-- 
-                <span>Tags</span>
+                <span>tags</span>
                 -->
             </div>
         </div>
@@ -196,6 +198,15 @@
             
             <section id="main"><article id="post-Android中实现自定义XMPP消息包收发" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
+        
+            
+	
+		<img src="http://i.imgur.com/AlXNlDS.png" class="article-banner" />
+	
+
+
+
+
         
         
         
@@ -237,20 +248,23 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在Android平台实现XMPP即时通讯主要是使用asmack这个包，asmack是XMPP协议的实现。但是asmack只能帮助我们实现一些基本消息包的收发，如果需要实现特定的自定义消息包收发需要我们自己处理。</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在Android平台实现XMPP即时通讯主要是使用asmack这个包，asmack是XMPP协议的实现。但是asmack只能帮助我们实现一些基本消息包的收发，如果需要实现特定的自定义消息包收发需要我们自己处理。<br><a id="more"></a></p>
+<hr>
 <h2 id="一、asmack消息的发送和接收"><a href="#一、asmack消息的发送和接收" class="headerlink" title="一、asmack消息的发送和接收"></a>一、asmack消息的发送和接收</h2><ul>
 <li><strong>发送Message消息：</strong>  </li>
 </ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发送一个message结的消息，可以使用sendMessage()发送消息，这个方法有两个重载方法，一种类型的参数是String类型，另一种则是传入Message对象。String类型的方法传入的字符串即为要发送的消息；传入message对象的方需要写一个类继承Message，重写<code>toXML()</code>方法，<code>toXML()</code>方法的返回值即为要发送的消息。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="number">1</span>、通过传入String类型的sendMessage()方法发送消息：</div><div class="line"></div><div class="line">ChatManager chatManager = xmppConnection.getChatManager();</div><div class="line"> <span class="comment">/**</span></div><div class="line">      	 * String userJID 对方的JID</div><div class="line">        * MessageListener listener 消息监听，当收到消息后会回调processMessage(Chat chat, Message message)方法</div><div class="line">        */</div><div class="line">Chat mChat = chatManager.createChat(mToUser, <span class="keyword">this</span>);</div><div class="line">mChat.sendMessage(<span class="string">"your content"</span>);</div><div class="line"><span class="number">2</span>、通过传入Message对象的sendMessage()方法发送消息：</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">*写一个类继承Message重写toXML()方法，方法的返回值即为要发送的消息</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyMessage</span> <span class="keyword">extends</span> <span class="title">Message</span> </span>&#123;</div><div class="line">	</div><div class="line">	 <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toXML</span><span class="params">()</span> </span>&#123;</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> <span class="string">"your content"</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">ChatManager chatManager = xmppConnection.getChatManager();</div><div class="line"> <span class="comment">/**</span></div><div class="line">      	 * String userJID 对方的JID</div><div class="line">        * MessageListener listener 消息监听，当收到消息后会回调processMessage(Chat chat, Message message)方法</div><div class="line">        */</div><div class="line">Chat mChat = chatManager.createChat(mToUser, <span class="keyword">this</span>);</div><div class="line">MyMessage myMessage = <span class="keyword">new</span> MyMessage();</div><div class="line">mChat.sendMessage(myMessage);</div></pre></td></tr></table></figure></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发送一个message结的消息，可以使用sendMessage()发送消息，这个方法有两个重载方法，一种类型的参数是String类型，另一种则是传入Message对象。String类型的方法传入的字符串即为要发送的消息；传入message对象的方需要写一个类继承Message，重写<code>toXML()</code>方法，<code>toXML()</code>方法的返回值即为要发送的消息。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//1、通过传入String类型的sendMessage()方法发送消息：</span></div><div class="line"></div><div class="line">ChatManager chatManager = xmppConnection.getChatManager();</div><div class="line"> <span class="comment">/**</span></div><div class="line">      	 * String userJID 对方的JID</div><div class="line">        * MessageListener listener 消息监听，当收到消息后会回调processMessage(Chat chat, Message message)方法</div><div class="line">        */</div><div class="line">Chat mChat = chatManager.createChat(mToUser, <span class="keyword">this</span>);</div><div class="line">mChat.sendMessage(<span class="string">"your content"</span>);</div><div class="line"><span class="comment">//2、通过传入Message对象的sendMessage()方法发送消息：</span></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">*写一个类继承Message重写toXML()方法，方法的返回值即为要发送的消息</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyMessage</span> <span class="keyword">extends</span> <span class="title">Message</span> </span>&#123;</div><div class="line">	</div><div class="line">	 <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toXML</span><span class="params">()</span> </span>&#123;</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> <span class="string">"your content"</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">ChatManager chatManager = xmppConnection.getChatManager();</div><div class="line"> <span class="comment">/**</span></div><div class="line">      	 * String userJID 对方的JID</div><div class="line">        * MessageListener listener 消息监听，当收到消息后会回调processMessage(Chat chat, Message message)方法</div><div class="line">        */</div><div class="line">Chat mChat = chatManager.createChat(mToUser, <span class="keyword">this</span>);</div><div class="line">MyMessage myMessage = <span class="keyword">new</span> MyMessage();</div><div class="line">mChat.sendMessage(myMessage);</div></pre></td></tr></table></figure></p>
 <ul>
 <li><strong>接收Message消息：</strong> </li>
 </ul>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;接收Message类型的消息主要是在<code>processMessage(Chat chat, Message message)</code>方法中，当收到消息后都会回调这个方法，需要实现<code>MessageListener</code>这个接口，然后实现接口中的<code>processMessage(Chat chat, Message message)</code>方法。</p>
+<hr>
 <h2 id="二、发送和接收自定义类型的IQ结消息"><a href="#二、发送和接收自定义类型的IQ结消息" class="headerlink" title="二、发送和接收自定义类型的IQ结消息"></a>二、发送和接收自定义类型的IQ结消息</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当发送的iq消息中包含自定义的xml结的时候，asmack提供的解析并不能识别这些自定义的xml结，所以就需要我们自己实现消息包的解析和拼装。 </p>
 <p>1、发送含自定义xml结的iq消息：<br>例如发送这样一个iq消息：<code>&lt;iq id=&#39;123&#39; type=&#39;get&#39; from=&#39;client@xmpp/B&#39; to=&#39;client2@xmpp/s2&#39;&gt;&lt;req var=&#39;read&#39;&gt;&lt;attr var=&#39;temprature&#39;/&gt;&lt;/req&gt;&lt;/iq&gt;</code>  </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//步骤：</span></div><div class="line"><span class="comment">//1、写一个类继承IQ并重写getChildElementXML()方法，该方法的返回值将作为消息体。</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyIQ</span> <span class="keyword">extends</span> <span class="title">IQ</span> </span>&#123;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getChildElementXML</span><span class="params">()</span> </span>&#123;</div><div class="line">		StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder();</div><div class="line">		stringBuilder.append(<span class="string">"&amp;lt;req var='read'&amp;gt;&amp;lt; attr var='temprature'/&amp;gt;&amp;lt;/req&amp;gt;"</span>);</div><div class="line">		<span class="keyword">return</span> stringBuilder.toString();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//2、发送这个含自定义xml结的iq消息包</span></div><div class="line">MyIQ packet = <span class="keyword">new</span> MyIQ();</div><div class="line">packet.setType(IQ.Type.GET);<span class="comment">//设置IQ结type</span></div><div class="line">       packet.setFrom(<span class="string">"client@xmpp/B"</span>);<span class="comment">//设置IQ结from</span></div><div class="line">       packet.setTo(<span class="string">"client2@xmpp/s2"</span>);<span class="comment">//设置IQ结to</span></div><div class="line">       xmppConnection.sendPacket(packet);<span class="comment">//发送消息包</span></div></pre></td></tr></table></figure>
 <p>2、解析服务器返回的iq消息包，消息包中含自定义xml结：<br>例如解析服务器返回的这样一个iq消息：<code>&lt;iq id=&#39;12&#39; type=&#39;result&#39; from=&#39;client2@xmpp/s2&#39; to=&#39;client@xmpp/B&#39;&gt;&lt;resp xmlns=&#39;data&#39;&gt;&lt;attr var=&#39;temprature&#39;&gt;17&lt;/attr&gt;&lt;/resp&gt;&lt;/iq&gt;</code>  </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//步骤：</span></div><div class="line"><span class="comment">//1、写一个类 implements PacketListener接口并实现其中的processPacket(Packet packet)方法。</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyPacketListener</span> <span class="keyword">implements</span> <span class="title">PacketListener</span> </span>&#123;</div><div class="line"> 	<span class="meta">@Override</span></div><div class="line">   	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">processPacket</span><span class="params">(Packet packet)</span> </span>&#123;</div><div class="line">		<span class="comment">//当收到消息包就会回调该方法</span></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//2、添加包监听器</span></div><div class="line">MyPacketListener mMyPacketListener = <span class="keyword">new</span> MyPacketListener();</div><div class="line"><span class="comment">//该方法有两个参数</span></div><div class="line"><span class="comment">//第一个参数：	PacketListener  包监听器</span></div><div class="line"><span class="comment">//第二个参数：   PacketFilter  包过滤器</span></div><div class="line">xmppConnection.addPacketListener(mMyPacketListener, <span class="keyword">null</span>);</div><div class="line"><span class="comment">//完成以上两步后，当收到消息包都会回调MyPacketListener中的processPacket(Packet packet)方法。</span></div><div class="line"><span class="comment">//3、写一个类继承IQ并实现getChildElementXML()方法。</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GetDataResp</span> <span class="keyword">extends</span> <span class="title">IQ</span> </span>&#123;</div><div class="line">	<span class="comment">//例如我们要获取上面iq消息包中的temprature和17两个属性,所以将这两个值声明为成员变量,并生成get和set方法。</span></div><div class="line">	<span class="keyword">public</span> String var;</div><div class="line">	<span class="keyword">public</span> String value;</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getVar</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> var;&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setVar</span><span class="params">(String var)</span> </span>&#123;<span class="keyword">this</span>.var = var;&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getValue</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> value;&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span><span class="params">(String value)</span> </span>&#123;his.value = value;&#125;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getChildElementXML</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="comment">//拼装消息</span></div><div class="line">		StringBuilder buf = <span class="keyword">new</span> StringBuilder();</div><div class="line">		buf.append(<span class="string">"&amp;lt;resp xmlns='get:data'&amp;gt;&amp;lt;attr var='"</span>);</div><div class="line">·		buf.append(getVar());</div><div class="line">		buf.append(<span class="string">"'&gt;"</span>);</div><div class="line">		buf.append(getValue());</div><div class="line">		buf.append(<span class="string">"&amp;lt;/attr&amp;gt;&amp;lt;/resp&amp;gt;"</span>);</div><div class="line">		<span class="keyword">return</span> buf.toString();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//4、写一个类implements IQProvider并实现接口中的parseIQ(XmlPullParser parser)方法。</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GetDataRespProvider</span> <span class="keyword">implements</span> <span class="title">IQProvider</span> </span>&#123;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> IQ <span class="title">parseIQ</span><span class="params">(XmlPullParser parser)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		GetDataResp getDataResp = <span class="keyword">new</span> GetDataResp();<span class="comment">//这个对象是上面第三步中的那个类对象</span></div><div class="line">		<span class="keyword">boolean</span> done = <span class="keyword">false</span>;</div><div class="line">		<span class="keyword">while</span> (!done) &#123;</div><div class="line">			<span class="keyword">int</span> eventType = parser.next();</div><div class="line">			<span class="keyword">if</span> (eventType == XmlPullParser.START_TAG) &#123;</div><div class="line">				<span class="keyword">if</span> (parser.getName().equals(<span class="string">"attr"</span>)) &#123;</div><div class="line">					String var = parser.getAttributeValue(<span class="string">""</span>, <span class="string">"var"</span>);<span class="comment">//获取var属性的value即：temprature</span></div><div class="line">					String value = parser.nextText();<span class="comment">//获取attr的文本即：17</span></div><div class="line">					getDataResp.setVar(var);</div><div class="line">					getDataResp.setValue(value);</div><div class="line">				&#125;</div><div class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span> (eventType == XmlPullParser.END_TAG) &#123;</div><div class="line">				<span class="keyword">if</span> (parser.getName().equals(<span class="string">"resp"</span>)) &#123;</div><div class="line">					done = <span class="keyword">true</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		 <span class="keyword">return</span> getDataResp;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//5、在配置ConnectionConfiguration时添加IQProvider</span></div><div class="line"><span class="comment">//第一个参数是：String　元素的名称</span></div><div class="line"><span class="comment">//第二个参数是：String  命名空间</span></div><div class="line"><span class="comment">//第三个参数是：Object  需要传入一个prvider对象</span></div><div class="line">ProviderManager.getInstance().addIQProvider(<span class="string">"resp"</span>, <span class="string">"data"</span>, <span class="keyword">new</span> GetDataRespProvider());</div><div class="line"><span class="comment">//6、在第一步MyPacketListener中的processPacket(Packet packet)方法中获取相应消息包</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyPacketListener</span> <span class="keyword">implements</span> <span class="title">PacketListener</span> </span>&#123;</div><div class="line"> 	<span class="meta">@Override</span></div><div class="line">   	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">processPacket</span><span class="params">(Packet packet)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (packet <span class="keyword">instanceof</span> GetDataResp) &#123;</div><div class="line">			GetDataResp getDataResp = (GetDataResp) packet;</div><div class="line">			String from = getDataResp.getFrom();</div><div class="line">			String to = getDataResp.getTo();</div><div class="line">			String var = getDataResp.getVar();</div><div class="line">			String value = getDataResp.getValue();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
 <h2 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h2><ul>
 <li><strong>发送message类型的消息中如果带有自定义xml结,需要写一个类继承Message并重写<code>toXML()</code>方法，该方法的返回值便是消息体。</strong></li>
 <li><strong>发送的iq类型的消息中如果带有自定义xml结，需要写一个类继承IQ并重写<code>getChildElementXML()</code>方法，该方法的返回值将作为消息体</strong></li>
@@ -410,7 +424,7 @@
                             <a href="/2016/06/05/Android中实现自定义XMPP消息包收发/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(http://i.imgur.com/AlXNlDS.png)" alt="Android中实现自定义XMPP消息包收发" class="thumbnail-image"></span>
     
 </a>
 
@@ -429,7 +443,7 @@
                             <a href="/2016/02/27/正则表达式学习笔记/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(http://i.imgur.com/c32VcXo.jpg)" alt="正则表达式学习笔记" class="thumbnail-image"></span>
     
 </a>
 
@@ -448,7 +462,7 @@
                             <a href="/2016/01/16/Android studio常见错误/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(http://i.imgur.com/H5vlBf1.png)" alt="怎么解决Android studio导入项目卡死" class="thumbnail-image"></span>
     
 </a>
 
@@ -467,7 +481,7 @@
                             <a href="/2016/01/15/QQ红包插件实现/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(http://i.imgur.com/Jh7Gbo7.png)" alt="QQ抢红包插件实现" class="thumbnail-image"></span>
     
 </a>
 

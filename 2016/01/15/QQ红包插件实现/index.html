@@ -5,21 +5,18 @@
     
     <title>QQ抢红包插件实现 | Devbird&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="之前跟那些20年的单身狗抢红包是屡战屡败。再加上最近群里面发红包发的厉害，又想到快要过年了，到时候还不知道群里要发好多红包，所以我将之前在网上宕的一份微信抢红包的代码修改了一下，实现了QQ抢红包！可以支持抢QQ拼手气红包，普通红包，口令红包，现在再也不怕20年单身手速`的人跟我抢红包了！">
+    <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;之前跟那些20年的单身狗抢红包是屡战屡败。再加上最近群里面发红包发的厉害，又想到快要过年了，到时候还不知道群里要发好多红包，所以我将之前在网上宕的一份微信抢红包的代码修改了一下，实现了QQ抢红包！可以支持抢QQ拼手气红包，普通红包，口令红包，现在再也不怕20年单身手速的人跟我抢红包了！">
 <meta property="og:type" content="article">
 <meta property="og:title" content="QQ抢红包插件实现">
 <meta property="og:url" content="http://tiandawu.github.io/2016/01/15/QQ红包插件实现/index.html">
 <meta property="og:site_name" content="Devbird's blog">
-<meta property="og:description" content="之前跟那些20年的单身狗抢红包是屡战屡败。再加上最近群里面发红包发的厉害，又想到快要过年了，到时候还不知道群里要发好多红包，所以我将之前在网上宕的一份微信抢红包的代码修改了一下，实现了QQ抢红包！可以支持抢QQ拼手气红包，普通红包，口令红包，现在再也不怕20年单身手速`的人跟我抢红包了！">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1440183-6788c271c29e0d39.gif?imageMogr2/auto-orient/strip">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1440183-f6a3dc7fabbd2d3b.gif?imageMogr2/auto-orient/strip">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1440183-936802d3cea53f84.gif?imageMogr2/auto-orient/strip">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1440183-9bad264ee6690000.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-07-10T16:03:29.626Z">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;之前跟那些20年的单身狗抢红包是屡战屡败。再加上最近群里面发红包发的厉害，又想到快要过年了，到时候还不知道群里要发好多红包，所以我将之前在网上宕的一份微信抢红包的代码修改了一下，实现了QQ抢红包！可以支持抢QQ拼手气红包，普通红包，口令红包，现在再也不怕20年单身手速的人跟我抢红包了！">
+<meta property="og:image" content="http://i.imgur.com/Jh7Gbo7.png">
+<meta property="og:updated_time" content="2016-07-11T04:23:34.752Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="QQ抢红包插件实现">
-<meta name="twitter:description" content="之前跟那些20年的单身狗抢红包是屡战屡败。再加上最近群里面发红包发的厉害，又想到快要过年了，到时候还不知道群里要发好多红包，所以我将之前在网上宕的一份微信抢红包的代码修改了一下，实现了QQ抢红包！可以支持抢QQ拼手气红包，普通红包，口令红包，现在再也不怕20年单身手速`的人跟我抢红包了！">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1440183-6788c271c29e0d39.gif?imageMogr2/auto-orient/strip">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;之前跟那些20年的单身狗抢红包是屡战屡败。再加上最近群里面发红包发的厉害，又想到快要过年了，到时候还不知道群里要发好多红包，所以我将之前在网上宕的一份微信抢红包的代码修改了一下，实现了QQ抢红包！可以支持抢QQ拼手气红包，普通红包，口令红包，现在再也不怕20年单身手速的人跟我抢红包了！">
+<meta name="twitter:image" content="http://i.imgur.com/Jh7Gbo7.png">
     
 
     
@@ -78,7 +75,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -97,9 +94,9 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
+            CATEGORIES: 'Categories',
             TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
@@ -129,7 +126,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
     </div>
 
                 </td>
@@ -149,21 +146,21 @@
             <h2 id="name">devbird</h2>
             <h3 id="title">Android Developer</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Chongqing, China</span>
-            <a id="follow" target="_blank" href="https://github.com/tiandawu/">SUIVRE</a>
+            <a id="follow" target="_blank" href="https://github.com/tiandawu/">FOLLOW</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
                 5
                 <span>文章</span>
                 <!-- 
-                <span>Articles</span>
+                <span>posts</span>
                 -->
             </div>
             <div class="article-info-block">
                 4
                 <span>标签</span>
                 <!-- 
-                <span>Tags</span>
+                <span>tags</span>
                 -->
             </div>
         </div>
@@ -201,6 +198,15 @@
             
             <section id="main"><article id="post-QQ红包插件实现" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
+        
+            
+	
+		<img src="http://i.imgur.com/Jh7Gbo7.png" class="article-banner" />
+	
+
+
+
+
         
         
         
@@ -242,209 +248,26 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;之前跟那些20年的单身狗抢红包是屡战屡败。再加上最近群里面发红包发的厉害，又想到快要过年了，到时候还不知道群里要发好多红包，所以我将之前在网上宕的一份微信抢红包的代码修改了一下，实现了QQ抢红包！可以支持抢QQ<strong>拼手气红包</strong>，<strong>普通红包</strong>，<strong>口令红包</strong>，现在再也不怕<strong>20年单身手速</strong>的人跟我抢红包了！</p>
-<h3 id="先看测试效果图："><a href="#先看测试效果图：" class="headerlink" title="先看测试效果图："></a>先看测试效果图：</h3><h5 id="1-抢QQ口令红包："><a href="#1-抢QQ口令红包：" class="headerlink" title="1. 抢QQ口令红包："></a>1. 抢QQ<strong>口令红包：</strong></h5><p><img src="http://upload-images.jianshu.io/upload_images/1440183-6788c271c29e0d39.gif?imageMogr2/auto-orient/strip" alt="口令红包.gif">  </p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;之前跟那些20年的单身狗抢红包是屡战屡败。再加上最近群里面发红包发的厉害，又想到快要过年了，到时候还不知道群里要发好多红包，所以我将之前在网上宕的一份微信抢红包的代码修改了一下，实现了QQ抢红包！可以支持抢QQ<strong>拼手气红包</strong>，<strong>普通红包</strong>，<strong>口令红包</strong>，现在再也不怕<strong>20年单身手速</strong>的人跟我抢红包了！<br><a id="more"></a></p>
+<h3 id="先看测试效果图："><a href="#先看测试效果图：" class="headerlink" title="先看测试效果图："></a>先看测试效果图：</h3><h5 id="1-抢QQ口令红包："><a href="#1-抢QQ口令红包：" class="headerlink" title="1. 抢QQ口令红包："></a>1. 抢QQ<strong>口令红包：</strong></h5><p><img src="http://i.imgur.com/lR5KIQd.gif" alt=""></p>
 <p>可以看见，只要红包一发出，自动填写口令并发出，帮你将红包抢到手！</p>
-<h5 id="2-抢QQ拼手气红包："><a href="#2-抢QQ拼手气红包：" class="headerlink" title="2. 抢QQ拼手气红包："></a>2. 抢QQ<strong>拼手气红包：</strong></h5><p><img src="http://upload-images.jianshu.io/upload_images/1440183-f6a3dc7fabbd2d3b.gif?imageMogr2/auto-orient/strip" alt="拼手气红包.gif">  </p>
+<h5 id="2-抢QQ拼手气红包："><a href="#2-抢QQ拼手气红包：" class="headerlink" title="2. 抢QQ拼手气红包："></a>2. 抢QQ<strong>拼手气红包：</strong></h5><p><img src="http://i.imgur.com/U84NH8x.gif" alt=""></p>
 <p>拼手气红包也是一样，只要红包一发出，自动帮你把红包抢到手，是不是很爽的感觉？  </p>
-<h5 id="3-抢QQ好友发送的红包："><a href="#3-抢QQ好友发送的红包：" class="headerlink" title="3. 抢QQ好友发送的红包："></a>3. 抢QQ好友发送的<strong>红包：</strong></h5><p><img src="http://upload-images.jianshu.io/upload_images/1440183-936802d3cea53f84.gif?imageMogr2/auto-orient/strip" alt="好友发送的QQ口令红包.gif">  </p>
+<h5 id="3-抢QQ好友发送的红包："><a href="#3-抢QQ好友发送的红包：" class="headerlink" title="3. 抢QQ好友发送的红包："></a>3. 抢QQ好友发送的<strong>红包：</strong></h5><p><img src="http://i.imgur.com/nH6UPxw.gif" alt=""></p>
 <p>只要好友或者群里的人把红包一发出，就会第一时间让你抢到红包！<br>所以只要在群里面开启插件，抢红包从来都是百发百中！  </p>
-<p>好了废话不多说了，也不吹嘘有多牛多好了，下面直接给大家上<strong>代码：</strong></p>
+<p>本插件主要是通过`AccessibilityService``来实现对屏幕的监控，从而实现抢红包的功能。代码比较少，下面从贴出源码来分析：</p>
+<hr>
 <p><strong>MainActivity:</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*MainActivity中的代码基本没改变：*/</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">   <span class="keyword">private</span> <span class="keyword">final</span> Intent mAccessibleIntent =</div><div class="line">           <span class="keyword">new</span> Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);</div><div class="line">   <span class="keyword">private</span> Button switchPlugin;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">       <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">       setContentView(R.layout.activity_main);</div><div class="line">       switchPlugin = (Button) findViewById(R.id.button_accessible);</div><div class="line">       updateServiceStatus();</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onButtonClicked</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">       startActivity(mAccessibleIntent);</div><div class="line">   &#125;</div><div class="line"></div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">super</span>.onResume();</div><div class="line">       updateServiceStatus();</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">updateServiceStatus</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">boolean</span> serviceEnabled = <span class="keyword">false</span>;</div><div class="line"></div><div class="line">       AccessibilityManager accessibilityManager =</div><div class="line">               (AccessibilityManager) getSystemService(Context.ACCESSIBILITY_SERVICE);</div><div class="line">       List&lt;AccessibilityServiceInfo&gt; accessibilityServices =</div><div class="line">               accessibilityManager.getEnabledAccessibilityServiceList(AccessibilityServiceInfo.FEEDBACK_GENERIC);</div><div class="line">       <span class="keyword">for</span> (AccessibilityServiceInfo info : accessibilityServices) &#123;</div><div class="line">           <span class="keyword">if</span> (info.getId().equals(getPackageName() + <span class="string">"/.QQHongbaoService"</span>)) &#123;</div><div class="line">               serviceEnabled = <span class="keyword">true</span>;</div><div class="line">               <span class="keyword">break</span>;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       <span class="keyword">if</span> (serviceEnabled) &#123;</div><div class="line">           switchPlugin.setText(<span class="string">"关闭插件"</span>);</div><div class="line">           <span class="comment">// Prevent screen from dimming</span></div><div class="line">           getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);</div><div class="line">       &#125; <span class="keyword">else</span> &#123;</div><div class="line">           switchPlugin.setText(<span class="string">"开启插件"</span>);</div><div class="line">           getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这里是MainActivity中的全部代码，是不是很少的样子，主要是实现了一个按钮去开启<strong>ACCESSIBILITY_SERVICE</strong>。这个插件主要就是借助<strong>AccessibilityService</strong>这个服务来实现。所以剩下的代码就都在这个服务中了！  </p>
-<p><strong>QQHongbaoService：</strong></p>
-<p><pre><code>public class QQHongbaoService extends AccessibilityService {</code></pre></p>
-<pre><code>private static final String WECHAT_OPEN_EN = &quot;Open&quot;;
-private static final String WECHAT_OPENED_EN = &quot;You&apos;ve opened&quot;;
-private final static String QQ_DEFAULT_CLICK_OPEN = &quot;点击拆开&quot;;
-private final static String QQ_HONG_BAO_PASSWORD = &quot;口令红包&quot;;
-private final static String QQ_CLICK_TO_PASTE_PASSWORD = &quot;点击输入口令&quot;;
-private boolean mLuckyMoneyReceived;
-private String lastFetchedHongbaoId = null;
-private long lastFetchedTime = 0;
-private static final int MAX_CACHE_TOLERANCE = 5000;
-private AccessibilityNodeInfo rootNodeInfo;
-private List&lt;AccessibilityNodeInfo&gt; mReceiveNode;
-
-@TargetApi(Build.VERSION_CODES.KITKAT)
-public void recycle(AccessibilityNodeInfo info) {
-    if (info.getChildCount() == 0) {
-
-        if (info.getText() != null &amp;&amp; info.getText().toString().equals(QQ_CLICK_TO_PASTE_PASSWORD)) {
-
-            info.getParent().performAction(AccessibilityNodeInfo.ACTION_CLICK);
-
-        }
-
-        if (info.getClassName().toString().equals(&quot;android.widget.Button&quot;) &amp;&amp; info.getText().toString().equals(&quot;发送&quot;)) {
-            info.performAction(AccessibilityNodeInfo.ACTION_CLICK);
-        }
-
-    } else {
-        for (int i = 0; i &lt; info.getChildCount(); i++) {
-            if (info.getChild(i) != null) {
-                recycle(info.getChild(i));
-            }
-        }
-    }
-}
-
-@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-@Override
-public void onAccessibilityEvent(AccessibilityEvent event) {
-
-    this.rootNodeInfo = event.getSource();
-
-    if (rootNodeInfo == null) {
-        return;
-    }
-
-    mReceiveNode = null;
-
-    checkNodeInfo();
-
-
-    /* 如果已经接收到红包并且还没有戳开 */
-    if (mLuckyMoneyReceived &amp;&amp; (mReceiveNode != null)) {
-        int size = mReceiveNode.size();
-        if (size &gt; 0) {
-
-            String id = getHongbaoText(mReceiveNode.get(size - 1));
-
-            long now = System.currentTimeMillis();
-
-            if (this.shouldReturn(id, now - lastFetchedTime))
-                return;
-
-            lastFetchedHongbaoId = id;
-            lastFetchedTime = now;
-
-            AccessibilityNodeInfo cellNode = mReceiveNode.get(size - 1);
-
-            if (cellNode.getText().toString().equals(&quot;口令红包已拆开&quot;)) {
-                return;
-            }
-
-            cellNode.getParent().performAction(AccessibilityNodeInfo.ACTION_CLICK);
-
-            if (cellNode.getText().toString().equals(QQ_HONG_BAO_PASSWORD)) {
-
-                AccessibilityNodeInfo rowNode = getRootInActiveWindow();
-                if (rowNode == null) {
-                    Log.e(TAG, &quot;noteInfo is　null&quot;);
-                    return;
-                } else {
-                    recycle(rowNode);
-                }
-            }
-
-            mLuckyMoneyReceived = false;
-
-        }
-    }
-
-}
-
-
-/**
- * 检查节点信息
- */
-private void checkNodeInfo() {
-
-    if (rootNodeInfo == null) {
-        return;
-    }
-
-     /* 聊天会话窗口，遍历节点匹配“点击拆开”，“口令红包”，“点击输入口令” */
-    List&lt;AccessibilityNodeInfo&gt; nodes1 = this.findAccessibilityNodeInfosByTexts(this.rootNodeInfo, new String[]{
-            QQ_DEFAULT_CLICK_OPEN, QQ_HONG_BAO_PASSWORD, QQ_CLICK_TO_PASTE_PASSWORD, &quot;发送&quot;});
-
-    if (!nodes1.isEmpty()) {
-        String nodeId = Integer.toHexString(System.identityHashCode(this.rootNodeInfo));
-        if (!nodeId.equals(lastFetchedHongbaoId)) {
-            mLuckyMoneyReceived = true;
-            mReceiveNode = nodes1;
-        }
-        return;
-    }
-
-}
-
-
-/**
- * 将节点对象的id和红包上的内容合并
- * 用于表示一个唯一的红包
- *
- * @param node 任意对象
- * @return 红包标识字符串
- */
-private String getHongbaoText(AccessibilityNodeInfo node) {
-    /* 获取红包上的文本 */
-    String content;
-    try {
-        AccessibilityNodeInfo i = node.getParent().getChild(0);
-        content = i.getText().toString();
-    } catch (NullPointerException npe) {
-        return null;
-    }
-
-    return content;
-}
-
-
-/**
- * 判断是否返回,减少点击次数
- * 现在的策略是当红包文本和缓存不一致时,戳
- * 文本一致且间隔大于MAX_CACHE_TOLERANCE时,戳
- *
- * @param id       红包id
- * @param duration 红包到达与缓存的间隔
- * @return 是否应该返回
- */
-private boolean shouldReturn(String id, long duration) {
-    // ID为空
-    if (id == null) return true;
-
-    // 名称和缓存不一致
-    if (duration &lt; MAX_CACHE_TOLERANCE &amp;&amp; id.equals(lastFetchedHongbaoId)) {
-        return true;
-    }
-
-    return false;
-}
-
-/**
- * 批量化执行AccessibilityNodeInfo.findAccessibilityNodeInfosByText(text).
- * 由于这个操作影响性能,将所有需要匹配的文字一起处理,尽早返回
- *
- * @param nodeInfo 窗口根节点
- * @param texts    需要匹配的字符串们
- * @return 匹配到的节点数组
- */
-private List&lt;AccessibilityNodeInfo&gt; findAccessibilityNodeInfosByTexts(AccessibilityNodeInfo nodeInfo, String[] texts) {
-    for (String text : texts) {
-        if (text == null) continue;
-
-        List&lt;AccessibilityNodeInfo&gt; nodes = nodeInfo.findAccessibilityNodeInfosByText(text);
-
-        if (!nodes.isEmpty()) {
-            if (text.equals(WECHAT_OPEN_EN) &amp;&amp; !nodeInfo.findAccessibilityNodeInfosByText(WECHAT_OPENED_EN).isEmpty()) {
-                continue;
-            }
-            return nodes;
-        }
-    }
-    return new ArrayList&lt;&gt;();
-}
-
-@Override
-public void onInterrupt() {
-
-}
-</code></pre><p>}<br><br><strong>QQHongbaoService</strong>的全部代码也在这里，代码不多。首先，在这个服务中主要是通过<strong>findAccessibilityNodeInfosByText</strong>这个方法去获我们需要的节点；然后，用  <strong>performAction(AccessibilityNodeInfo.ACTION_CLICK)</strong> 这个方法去点击红包节点，关键思路大概就是这样！<br>另外如果是口令红包，我们需要先按照上面的步骤将红包戳开，然后通过<strong>performAction(AccessibilityNodeInfo.ACTION_CLICK)</strong>去<strong>点击输入口令</strong>，最后再通过点击去发送即可实现！</p>
-<p><strong>QQHongbaoService</strong>需要在<strong>AndroidManifest.xml</strong>文件中注册，<br>注册的<application>节点如下图：<br><img src="http://upload-images.jianshu.io/upload_images/1440183-9bad264ee6690000.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></application></p>
-<p>总体来看，只是将微信抢红包的代码做了少量的修改，在这里要感谢各位大神对微信抢红包源码的贡献！最后也希望这篇文章能给大家有所帮助，在抢红包大战中虐死单身狗，再也不怕你20年的单身手速了！！！  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*MainActivity中的代码基本没改变：*/</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line">   <span class="keyword">private</span> <span class="keyword">final</span> Intent mAccessibleIntent =</div><div class="line">           <span class="keyword">new</span> Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);</div><div class="line">   <span class="keyword">private</span> Button switchPlugin;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">       <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">       setContentView(R.layout.activity_main);</div><div class="line">       switchPlugin = (Button) findViewById(R.id.button_accessible);</div><div class="line">       updateServiceStatus();</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onButtonClicked</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">       startActivity(mAccessibleIntent);</div><div class="line">   &#125;</div><div class="line"></div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">super</span>.onResume();</div><div class="line">       updateServiceStatus();</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">updateServiceStatus</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">boolean</span> serviceEnabled = <span class="keyword">false</span>;</div><div class="line"></div><div class="line">       AccessibilityManager accessibilityManager =</div><div class="line">               (AccessibilityManager) getSystemService(Context.ACCESSIBILITY_SERVICE);</div><div class="line">       List&lt;AccessibilityServiceInfo&gt; accessibilityServices =</div><div class="line">               accessibilityManager.getEnabledAccessibilityServiceList(AccessibilityServiceInfo.FEEDBACK_GENERIC);</div><div class="line">       <span class="keyword">for</span> (AccessibilityServiceInfo info : accessibilityServices) &#123;</div><div class="line">           <span class="keyword">if</span> (info.getId().equals(getPackageName() + <span class="string">"/.QQHongbaoService"</span>)) &#123;</div><div class="line">               serviceEnabled = <span class="keyword">true</span>;</div><div class="line">               <span class="keyword">break</span>;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       <span class="keyword">if</span> (serviceEnabled) &#123;</div><div class="line">           switchPlugin.setText(<span class="string">"关闭插件"</span>);</div><div class="line">           <span class="comment">// Prevent screen from dimming</span></div><div class="line">           getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);</div><div class="line">       &#125; <span class="keyword">else</span> &#123;</div><div class="line">           switchPlugin.setText(<span class="string">"开启插件"</span>);</div><div class="line">           getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里是MainActivity中的全部代码，是不是很少的样子，主要是实现了一个按钮去开启<strong>ACCESSIBILITY_SERVICE</strong>。这个插件主要就是借助<strong>AccessibilityService</strong>这个服务来实现。所以剩下的核心功能代码就都在这个服务中了！  </p>
+<hr>
+<p><strong>QQHongbaoService：</strong>  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QQHongbaoService</span> <span class="keyword">extends</span> <span class="title">AccessibilityService</span> </span>&#123;</div><div class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String WECHAT_OPEN_EN = <span class="string">"Open"</span>;</div><div class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String WECHAT_OPENED_EN = <span class="string">"You've opened"</span>;</div><div class="line">   <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> String QQ_DEFAULT_CLICK_OPEN = <span class="string">"点击拆开"</span>;</div><div class="line">   <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> String QQ_HONG_BAO_PASSWORD = <span class="string">"口令红包"</span>;</div><div class="line">   <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> String QQ_CLICK_TO_PASTE_PASSWORD = <span class="string">"点击输入口令"</span>;</div><div class="line">   <span class="keyword">private</span> <span class="keyword">boolean</span> mLuckyMoneyReceived;</div><div class="line">   <span class="keyword">private</span> String lastFetchedHongbaoId = <span class="keyword">null</span>;</div><div class="line">   <span class="keyword">private</span> <span class="keyword">long</span> lastFetchedTime = <span class="number">0</span>;</div><div class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAX_CACHE_TOLERANCE = <span class="number">5000</span>;</div><div class="line">   <span class="keyword">private</span> AccessibilityNodeInfo rootNodeInfo;</div><div class="line">   <span class="keyword">private</span> List&lt;AccessibilityNodeInfo&gt; mReceiveNode;</div><div class="line"></div><div class="line">   <span class="meta">@TargetApi</span>(Build.VERSION_CODES.KITKAT)</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">recycle</span><span class="params">(AccessibilityNodeInfo info)</span> </span>&#123;</div><div class="line">       <span class="keyword">if</span> (info.getChildCount() == <span class="number">0</span>) &#123;</div><div class="line">           <span class="keyword">if</span> (info.getText() != <span class="keyword">null</span> &amp;&amp; info.getText().toString().equals(QQ_CLICK_TO_PASTE_PASSWORD)) &#123;</div><div class="line">               info.getParent().performAction(AccessibilityNodeInfo.ACTION_CLICK);</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="keyword">if</span> (info.getClassName().toString().equals(<span class="string">"android.widget.Button"</span>) &amp;&amp; info.getText().toString().equals(<span class="string">"发送"</span>)) &#123;</div><div class="line">               info.performAction(AccessibilityNodeInfo.ACTION_CLICK);</div><div class="line">           &#125;</div><div class="line"></div><div class="line">       &#125; <span class="keyword">else</span> &#123;</div><div class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; info.getChildCount(); i++) &#123;</div><div class="line">               <span class="keyword">if</span> (info.getChild(i) != <span class="keyword">null</span>) &#123;</div><div class="line">                   recycle(info.getChild(i));</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="meta">@TargetApi</span>(Build.VERSION_CODES.JELLY_BEAN)</div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAccessibilityEvent</span><span class="params">(AccessibilityEvent event)</span> </span>&#123;</div><div class="line"></div><div class="line">       <span class="keyword">this</span>.rootNodeInfo = event.getSource();</div><div class="line"></div><div class="line">       <span class="keyword">if</span> (rootNodeInfo == <span class="keyword">null</span>) &#123;</div><div class="line">           <span class="keyword">return</span>;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       mReceiveNode = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">       checkNodeInfo();</div><div class="line"></div><div class="line"></div><div class="line">       <span class="comment">/* 如果已经接收到红包并且还没有戳开 */</span></div><div class="line">       <span class="keyword">if</span> (mLuckyMoneyReceived &amp;&amp; (mReceiveNode != <span class="keyword">null</span>)) &#123;</div><div class="line">           <span class="keyword">int</span> size = mReceiveNode.size();</div><div class="line">           <span class="keyword">if</span> (size &gt; <span class="number">0</span>) &#123;</div><div class="line"></div><div class="line">               String id = getHongbaoText(mReceiveNode.get(size - <span class="number">1</span>));</div><div class="line"></div><div class="line">               <span class="keyword">long</span> now = System.currentTimeMillis();</div><div class="line"></div><div class="line">               <span class="keyword">if</span> (<span class="keyword">this</span>.shouldReturn(id, now - lastFetchedTime))</div><div class="line">                   <span class="keyword">return</span>;</div><div class="line"></div><div class="line">               lastFetchedHongbaoId = id;</div><div class="line">               lastFetchedTime = now;</div><div class="line"></div><div class="line">               AccessibilityNodeInfo cellNode = mReceiveNode.get(size - <span class="number">1</span>);</div><div class="line"></div><div class="line">               <span class="keyword">if</span> (cellNode.getText().toString().equals(<span class="string">"口令红包已拆开"</span>)) &#123;</div><div class="line">                   <span class="keyword">return</span>;</div><div class="line">               &#125;</div><div class="line"></div><div class="line">               cellNode.getParent().performAction(AccessibilityNodeInfo.ACTION_CLICK);</div><div class="line">               <span class="keyword">if</span> (cellNode.getText().toString().equals(QQ_HONG_BAO_PASSWORD)) &#123;</div><div class="line">                   AccessibilityNodeInfo rowNode = getRootInActiveWindow();</div><div class="line">                   <span class="keyword">if</span> (rowNode == <span class="keyword">null</span>) &#123;</div><div class="line">                       Log.e(TAG, <span class="string">"noteInfo is　null"</span>);</div><div class="line">                       <span class="keyword">return</span>;</div><div class="line">                   &#125; <span class="keyword">else</span> &#123;</div><div class="line">                       recycle(rowNode);</div><div class="line">                   &#125;</div><div class="line">               &#125;</div><div class="line">               mLuckyMoneyReceived = <span class="keyword">false</span>;</div><div class="line"></div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">   &#125;</div><div class="line"></div><div class="line"></div><div class="line">   <span class="comment">/**</span></div><div class="line">    * 检查节点信息</div><div class="line">    */</div><div class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">checkNodeInfo</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">       <span class="keyword">if</span> (rootNodeInfo == <span class="keyword">null</span>) &#123;</div><div class="line">           <span class="keyword">return</span>;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">        <span class="comment">/* 聊天会话窗口，遍历节点匹配“点击拆开”，“口令红包”，“点击输入口令” */</span></div><div class="line">       List&lt;AccessibilityNodeInfo&gt; nodes1 = <span class="keyword">this</span>.findAccessibilityNodeInfosByTexts(<span class="keyword">this</span>.rootNodeInfo, <span class="keyword">new</span> String[]&#123;</div><div class="line">               QQ_DEFAULT_CLICK_OPEN, QQ_HONG_BAO_PASSWORD, QQ_CLICK_TO_PASTE_PASSWORD, <span class="string">"发送"</span>&#125;);</div><div class="line"></div><div class="line">       <span class="keyword">if</span> (!nodes1.isEmpty()) &#123;</div><div class="line">           String nodeId = Integer.toHexString(System.identityHashCode(<span class="keyword">this</span>.rootNodeInfo));</div><div class="line">           <span class="keyword">if</span> (!nodeId.equals(lastFetchedHongbaoId)) &#123;</div><div class="line">               mLuckyMoneyReceived = <span class="keyword">true</span>;</div><div class="line">               mReceiveNode = nodes1;</div><div class="line">           &#125;</div><div class="line">           <span class="keyword">return</span>;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">   &#125;</div><div class="line"></div><div class="line"></div><div class="line">   <span class="comment">/**</span></div><div class="line">    * 将节点对象的id和红包上的内容合并</div><div class="line">    * 用于表示一个唯一的红包</div><div class="line">    *</div><div class="line">    * <span class="doctag">@param</span> node 任意对象</div><div class="line">    * <span class="doctag">@return</span> 红包标识字符串</div><div class="line">    */</div><div class="line">   <span class="function"><span class="keyword">private</span> String <span class="title">getHongbaoText</span><span class="params">(AccessibilityNodeInfo node)</span> </span>&#123;</div><div class="line">       <span class="comment">/* 获取红包上的文本 */</span></div><div class="line">       String content;</div><div class="line">       <span class="keyword">try</span> &#123;</div><div class="line">           AccessibilityNodeInfo i = node.getParent().getChild(<span class="number">0</span>);</div><div class="line">           content = i.getText().toString();</div><div class="line">       &#125; <span class="keyword">catch</span> (NullPointerException npe) &#123;</div><div class="line">           <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       <span class="keyword">return</span> content;</div><div class="line">   &#125;</div><div class="line"></div><div class="line"></div><div class="line">   <span class="comment">/**</span></div><div class="line">    * 判断是否返回,减少点击次数</div><div class="line">    * 现在的策略是当红包文本和缓存不一致时,戳</div><div class="line">    * 文本一致且间隔大于MAX_CACHE_TOLERANCE时,戳</div><div class="line">    *</div><div class="line">    * <span class="doctag">@param</span> id       红包id</div><div class="line">    * <span class="doctag">@param</span> duration 红包到达与缓存的间隔</div><div class="line">    * <span class="doctag">@return</span> 是否应该返回</div><div class="line">    */</div><div class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">shouldReturn</span><span class="params">(String id, <span class="keyword">long</span> duration)</span> </span>&#123;</div><div class="line">       <span class="comment">// ID为空</span></div><div class="line">       <span class="keyword">if</span> (id == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line"></div><div class="line">       <span class="comment">// 名称和缓存不一致</span></div><div class="line">       <span class="keyword">if</span> (duration &lt; MAX_CACHE_TOLERANCE &amp;&amp; id.equals(lastFetchedHongbaoId)) &#123;</div><div class="line">           <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="comment">/**</span></div><div class="line">    * 批量化执行AccessibilityNodeInfo.findAccessibilityNodeInfosByText(text).</div><div class="line">    * 由于这个操作影响性能,将所有需要匹配的文字一起处理,尽早返回</div><div class="line">    *</div><div class="line">    * <span class="doctag">@param</span> nodeInfo 窗口根节点</div><div class="line">    * <span class="doctag">@param</span> texts    需要匹配的字符串们</div><div class="line">    * <span class="doctag">@return</span> 匹配到的节点数组</div><div class="line">    */</div><div class="line">   <span class="function"><span class="keyword">private</span> List&lt;AccessibilityNodeInfo&gt; <span class="title">findAccessibilityNodeInfosByTexts</span><span class="params">(AccessibilityNodeInfo nodeInfo, String[] texts)</span> </span>&#123;</div><div class="line">       <span class="keyword">for</span> (String text : texts) &#123;</div><div class="line">           <span class="keyword">if</span> (text == <span class="keyword">null</span>) <span class="keyword">continue</span>;</div><div class="line"></div><div class="line">           List&lt;AccessibilityNodeInfo&gt; nodes = nodeInfo.findAccessibilityNodeInfosByText(text);</div><div class="line"></div><div class="line">           <span class="keyword">if</span> (!nodes.isEmpty()) &#123;</div><div class="line">               <span class="keyword">if</span> (text.equals(WECHAT_OPEN_EN) &amp;&amp; !nodeInfo.findAccessibilityNodeInfosByText(WECHAT_OPENED_EN).isEmpty()) &#123;</div><div class="line">                   <span class="keyword">continue</span>;</div><div class="line">               &#125;</div><div class="line">               <span class="keyword">return</span> nodes;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onInterrupt</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>QQHongbaoService</strong>的全部代码也在这里，代码也不多。首先，在这个服务中主要是通过<strong>findAccessibilityNodeInfosByText</strong>这个方法去获我们需要的节点；然后，用  <strong>performAction(AccessibilityNodeInfo.ACTION_CLICK)</strong> 这个方法去点击红包节点，关键思路大概就是这样！<br>另外如果是口令红包，我们需要先按照上面的步骤将红包戳开，然后通过<strong>performAction(AccessibilityNodeInfo.ACTION_CLICK)</strong>去<strong>点击输入口令</strong>，最后再通过点击去发送即可实现！</p>
+<hr>
+<p><strong>QQHongbaoService</strong>需要在<strong>AndroidManifest.xml</strong>文件中注册，<br>注册的<application>节点如下图：<br><img src="http://i.imgur.com/etMx6Z9.png" alt=""></application></p>
+<p>总体来看，只是将微信抢红包的代码做了少量的修改，在这里要感谢微信抢红包源码的贡献！最后也希望这篇文章能给大家有所帮助，在抢红包大战中百战百胜！  </p>
+<hr>
 <h4 id="下面是源码地址："><a href="#下面是源码地址：" class="headerlink" title="下面是源码地址："></a>下面是源码地址：</h4><p>点击：<a href="https://github.com/tiandawu/QQHongbao" target="_blank" rel="external"><font color="#0000FF">下载地址</font></a></p>
 
         
@@ -602,7 +425,7 @@ public void onInterrupt() {
                             <a href="/2016/06/05/Android中实现自定义XMPP消息包收发/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(http://i.imgur.com/AlXNlDS.png)" alt="Android中实现自定义XMPP消息包收发" class="thumbnail-image"></span>
     
 </a>
 
@@ -621,7 +444,7 @@ public void onInterrupt() {
                             <a href="/2016/02/27/正则表达式学习笔记/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(http://i.imgur.com/c32VcXo.jpg)" alt="正则表达式学习笔记" class="thumbnail-image"></span>
     
 </a>
 
@@ -640,7 +463,7 @@ public void onInterrupt() {
                             <a href="/2016/01/16/Android studio常见错误/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(http://i.imgur.com/H5vlBf1.png)" alt="怎么解决Android studio导入项目卡死" class="thumbnail-image"></span>
     
 </a>
 
@@ -659,7 +482,7 @@ public void onInterrupt() {
                             <a href="/2016/01/15/QQ红包插件实现/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(http://i.imgur.com/Jh7Gbo7.png)" alt="QQ抢红包插件实现" class="thumbnail-image"></span>
     
 </a>
 

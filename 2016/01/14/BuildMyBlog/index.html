@@ -75,7 +75,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -94,9 +94,9 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
+            CATEGORIES: 'Categories',
             TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
@@ -126,7 +126,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
     </div>
 
                 </td>
@@ -146,21 +146,21 @@
             <h2 id="name">devbird</h2>
             <h3 id="title">Android Developer</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Chongqing, China</span>
-            <a id="follow" target="_blank" href="https://github.com/tiandawu/">SUIVRE</a>
+            <a id="follow" target="_blank" href="https://github.com/tiandawu/">FOLLOW</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
                 5
                 <span>文章</span>
                 <!-- 
-                <span>Articles</span>
+                <span>posts</span>
                 -->
             </div>
             <div class="article-info-block">
                 4
                 <span>标签</span>
                 <!-- 
-                <span>Tags</span>
+                <span>tags</span>
                 -->
             </div>
         </div>
@@ -239,27 +239,27 @@
         
             
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这篇文章主要讲解怎么利用Hexo和github来搭建自己的博客！如果你正想搭建一个属于自己的博客，那么就不妨动手跟我一起来搭建 ！<br><a id="more"></a> </p>
-<h3 id="一-环境搭建"><a href="#一-环境搭建" class="headerlink" title="一.环境搭建"></a>一.环境搭建</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在搭建之前我们首先要搭建环境，首先要做的是安装<a href="http://git-scm.com/download/" target="_blank" rel="external"><font color="#0000FF">Git</font></a>和<a href="http://nodejs.org/" target="_blank" rel="external"><font color="#0000FF">Node.js(最好翻墙后打开)</font></a>，先去这两个网站官网下载并安装好，安装的过程很简单，就是一路下一步即可！其次要做的是打开你的<strong>git Bash</strong>窗口，输入如下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div></pre></td></tr></table></figure></p>
+<h3 id="一-环境搭建"><a href="#一-环境搭建" class="headerlink" title="一.环境搭建"></a>一.环境搭建</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在搭建之前我们首先要搭建环境，首先要做的是安装<a href="http://git-scm.com/download/" target="_blank" rel="external"><font color="#0000FF">Git</font></a>和<a href="http://nodejs.org/" target="_blank" rel="external"><font color="#0000FF">Node.js(最好翻墙后打开)</font></a>，先去这两个网站官网下载并安装好，安装的过程很简单，就是一路下一步即可！其次要做的是打开你的<strong>git Bash</strong>窗口，输入如下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span></pre></td></tr></table></figure></p>
 <p>完成以上操作后，你就算将<strong>Hexo</strong>也安装好了，安装<strong>Hexo</strong>也可以参看<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external"><font color="#0000FF">Hexo的官网</font></a>。<br>至此，环境搭建已经完成！  </p>
 <hr>
-<h3 id="二-创建本地博客"><a href="#二-创建本地博客" class="headerlink" title="二.创建本地博客"></a>二.创建本地博客</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在本地磁盘新建一个文件夹，我这里命名为：MyBlog，然后鼠标右击该文件夹，打开：<strong>Git Bash Here</strong>。在弹出的命令窗口中输入以下命令:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init yourname.github.io</div></pre></td></tr></table></figure></p>
-<p>需要<strong>注意</strong>的是：这里需要将命令中的<strong>yourname</strong>替换成你的github的账户名，必须要是和账户名一致！<br>执行完这条命令后就会在你刚才新建的文件夹下生成一个名字为：yourname.github.io的文件夹。然后，又执行如下几条命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> yourname.github.io  //<span class="built_in">cd</span>到刚才自动创建的目录下</div><div class="line">$ npm install</div><div class="line">$ hexo g</div><div class="line">$ hexo s</div></pre></td></tr></table></figure></p>
+<h3 id="二-创建本地博客"><a href="#二-创建本地博客" class="headerlink" title="二.创建本地博客"></a>二.创建本地博客</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在本地磁盘新建一个文件夹，我这里命名为：MyBlog，然后鼠标右击该文件夹，打开：<strong>Git Bash Here</strong>。在弹出的命令窗口中输入以下命令:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo init yourname.github.io</span></pre></td></tr></table></figure></p>
+<p>需要<strong>注意</strong>的是：这里需要将命令中的<strong>yourname</strong>替换成你的github的账户名，必须要是和账户名一致！<br>执行完这条命令后就会在你刚才新建的文件夹下生成一个名字为：yourname.github.io的文件夹。然后，又执行如下几条命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><span class="line">2</span><span class="line">3</span><span class="line">4</span></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> yourname.github.io  //<span class="built_in">cd</span>到刚才自动创建的目录下</span><span class="line">$ npm install</span><span class="line">$ hexo g</span><span class="line">$ hexo s</span></pre></td></tr></table></figure></p>
 <p>执行完以上命令后，不要关闭<strong>Git Bash</strong>窗口，用浏览器打开：<a href="http://localhost:4000/" target="_blank" rel="external"><font color="#0000FF">http://localhost:4000/</font></a> 你就会看见自己的本地博客页面了，如图：<br><img src="http://i.imgur.com/s3erhTc.png" alt=""> </p>
 <hr>
 <h3 id="三-将本地博客部署到github上"><a href="#三-将本地博客部署到github上" class="headerlink" title="三.将本地博客部署到github上"></a>三.将本地博客部署到github上</h3><h5 id="1-在github上创建一个仓库"><a href="#1-在github上创建一个仓库" class="headerlink" title="1. 在github上创建一个仓库"></a>1. 在github上创建一个仓库</h5><p>按照下图创建：<br><img src="http://upload-images.jianshu.io/upload_images/1440183-2c63ea8a268dfda5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="github上创建仓库.png"><br>填写完成，点解<strong>Create repository</strong>完成创建即可！  </p>
-<h5 id="2-将刚创建的远程仓库更新下来"><a href="#2-将刚创建的远程仓库更新下来" class="headerlink" title="2. 将刚创建的远程仓库更新下来"></a>2. 将刚创建的远程仓库更新下来</h5><p>步骤如下：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;依然是鼠标右击：yourname.github.io打开<strong>Git Bash Here</strong>,执行如下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git init    //初始化git仓库</div><div class="line">$ git remote add origin git@github.com:yourname/yourname.github.io.git  //将yourname替换//给远程仓库添加一个名为：origin 的引用</div><div class="line">$ git fetch origin   //获取远程仓库的内容</div><div class="line">$ git merge origin/master //将获取的内容合并到master分支</div></pre></td></tr></table></figure></p>
-<h5 id="3-修改配置文件"><a href="#3-修改配置文件" class="headerlink" title="3. 修改配置文件"></a>3. 修改配置文件</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;接着用<a href="http://www.sublimetext.com/" target="_blank" rel="external"><font color="#0000FF">sublime</font></a>或者<a href="https://notepad-plus-plus.org/" target="_blank" rel="external"><font color="#0000FF">notepad++</font></a>打开：yourname.github.io文件夹下的这个文件：<strong>_config.yml</strong>，在文件最后做如下修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com:yourname/yourname.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
-<p><strong>以下两步是有自己域名的看：</strong><br>如果你有自己的域名，可以将上面修改如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com:tiandawu/tiandawu.github.io.git</div><div class="line">  branch: master</div><div class="line">  plugins: -hexo-generator-cname</div></pre></td></tr></table></figure></p>
-<p>另外还需要修改的是这里：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">url: http://tiandawu.com       //这里改成自己的域名</div><div class="line">root: /</div><div class="line">permalink: :year/:month/:day/:title/</div><div class="line">permalink_defaults:</div></pre></td></tr></table></figure></p>
+<h5 id="2-将刚创建的远程仓库更新下来"><a href="#2-将刚创建的远程仓库更新下来" class="headerlink" title="2. 将刚创建的远程仓库更新下来"></a>2. 将刚创建的远程仓库更新下来</h5><p>步骤如下：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;依然是鼠标右击：yourname.github.io打开<strong>Git Bash Here</strong>,执行如下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><span class="line">2</span><span class="line">3</span><span class="line">4</span></pre></td><td class="code"><pre><span class="line">$ git init    //初始化git仓库</span><span class="line">$ git remote add origin git@github.com:yourname/yourname.github.io.git  //将yourname替换//给远程仓库添加一个名为：origin 的引用</span><span class="line">$ git fetch origin   //获取远程仓库的内容</span><span class="line">$ git merge origin/master //将获取的内容合并到master分支</span></pre></td></tr></table></figure></p>
+<h5 id="3-修改配置文件"><a href="#3-修改配置文件" class="headerlink" title="3. 修改配置文件"></a>3. 修改配置文件</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;接着用<a href="http://www.sublimetext.com/" target="_blank" rel="external"><font color="#0000FF">sublime</font></a>或者<a href="https://notepad-plus-plus.org/" target="_blank" rel="external"><font color="#0000FF">notepad++</font></a>打开：yourname.github.io文件夹下的这个文件：<strong>_config.yml</strong>，在文件最后做如下修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><span class="line">2</span><span class="line">3</span><span class="line">4</span></pre></td><td class="code"><pre><span class="line">deploy:</span><span class="line">  type: git</span><span class="line">  repo: git@github.com:yourname/yourname.github.io.git</span><span class="line">  branch: master</span></pre></td></tr></table></figure></p>
+<p><strong>以下两步是有自己域名的看：</strong><br>如果你有自己的域名，可以将上面修改如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><span class="line">2</span><span class="line">3</span><span class="line">4</span><span class="line">5</span></pre></td><td class="code"><pre><span class="line">deploy:</span><span class="line">  type: git</span><span class="line">  repo: git@github.com:tiandawu/tiandawu.github.io.git</span><span class="line">  branch: master</span><span class="line">  plugins: -hexo-generator-cname</span></pre></td></tr></table></figure></p>
+<p>另外还需要修改的是这里：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><span class="line">2</span><span class="line">3</span><span class="line">4</span></pre></td><td class="code"><pre><span class="line">url: http://tiandawu.com       //这里改成自己的域名</span><span class="line">root: /</span><span class="line">permalink: :year/:month/:day/:title/</span><span class="line">permalink_defaults:</span></pre></td></tr></table></figure></p>
 <p>好了，至此配置文件修改完毕。</p>
-<h5 id="4-部署到github"><a href="#4-部署到github" class="headerlink" title="4. 部署到github"></a>4. 部署到github</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;依然来到刚才的<strong>Git Bash</strong>窗口，执行如下命令：<br>有自己域名的需要先执行这条命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-generator-cname --save  //这条命令执行过程较慢，耐心等待！(需要翻墙快)</div></pre></td></tr></table></figure></p>
-<p>下面的命令都需要执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git add .</div><div class="line">$ git commit -m <span class="string">"输入自己的描述信息"</span></div><div class="line">$ git push origin master</div></pre></td></tr></table></figure></p>
-<p>执行完上面的命令，没有配置自己域名的再执行下面两条命令就可访问自己的博客了：(在浏览器中输入：<code>yourname.github.io</code>访问)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div><div class="line">$ hexo d</div></pre></td></tr></table></figure></p>
+<h5 id="4-部署到github"><a href="#4-部署到github" class="headerlink" title="4. 部署到github"></a>4. 部署到github</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;依然来到刚才的<strong>Git Bash</strong>窗口，执行如下命令：<br>有自己域名的需要先执行这条命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-cname --save  //这条命令执行过程较慢，耐心等待！(需要翻墙快)</span></pre></td></tr></table></figure></p>
+<p>下面的命令都需要执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><span class="line">2</span><span class="line">3</span></pre></td><td class="code"><pre><span class="line">$ git add .</span><span class="line">$ git commit -m <span class="string">"输入自己的描述信息"</span></span><span class="line">$ git push origin master</span></pre></td></tr></table></figure></p>
+<p>执行完上面的命令，没有配置自己域名的再执行下面两条命令就可访问自己的博客了：(在浏览器中输入：<code>yourname.github.io</code>访问)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><span class="line">2</span></pre></td><td class="code"><pre><span class="line">$ hexo g</span><span class="line">$ hexo d</span></pre></td></tr></table></figure></p>
 <hr>
-<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a><em>注意：</em></h3><p>在执行：<code>$ hexo d</code>的时候如果出现下面的错误：<br><img src="http://upload-images.jianshu.io/upload_images/1440183-7cb3c497fd382d00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="发布出错.png"><br>这时候只需要先执行这条命令:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
-<p>然后后再执行下面这条部署命令就行了！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d</div></pre></td></tr></table></figure></p>
-<p>配置了自己域名的还需要执行完下面的命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git fetch origin</div><div class="line">$ git merge origin/master</div></pre></td></tr></table></figure></p>
-<p>配置了自己域名的还需要修改<strong>CNAME</strong>文件，public文件夹下的<strong>CNAME</strong>也要修改，都填写上自己的域名即可！可以参考我填写的<a href="https://github.com/tiandawu/tiandawu.github.io/blob/master/CNAME" target="_blank" rel="external"><font color="#0000FF"><strong>CNAME文件</strong></font></a>。<br>配置了自己域名的最后执行下面命令也能访问了：（可以通过：<code>yourname.github.io</code>或<code>你的域名</code>访问）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git add .</div><div class="line">$ git commit -m <span class="string">"输入自己的描述信息"</span></div><div class="line">$ git push origin master</div><div class="line">$ hexo g</div><div class="line">$ hexo d</div></pre></td></tr></table></figure></p>
+<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a><em>注意：</em></h3><p>在执行：<code>$ hexo d</code>的时候如果出现下面的错误：<br><img src="http://upload-images.jianshu.io/upload_images/1440183-7cb3c497fd382d00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="发布出错.png"><br>这时候只需要先执行这条命令:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span></pre></td></tr></table></figure></p>
+<p>然后后再执行下面这条部署命令就行了！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo d</span></pre></td></tr></table></figure></p>
+<p>配置了自己域名的还需要执行完下面的命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><span class="line">2</span></pre></td><td class="code"><pre><span class="line">$ git fetch origin</span><span class="line">$ git merge origin/master</span></pre></td></tr></table></figure></p>
+<p>配置了自己域名的还需要修改<strong>CNAME</strong>文件，public文件夹下的<strong>CNAME</strong>也要修改，都填写上自己的域名即可！可以参考我填写的<a href="https://github.com/tiandawu/tiandawu.github.io/blob/master/CNAME" target="_blank" rel="external"><font color="#0000FF"><strong>CNAME文件</strong></font></a>。<br>配置了自己域名的最后执行下面命令也能访问了：（可以通过：<code>yourname.github.io</code>或<code>你的域名</code>访问）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><span class="line">2</span><span class="line">3</span><span class="line">4</span><span class="line">5</span></pre></td><td class="code"><pre><span class="line">$ git add .</span><span class="line">$ git commit -m <span class="string">"输入自己的描述信息"</span></span><span class="line">$ git push origin master</span><span class="line">$ hexo g</span><span class="line">$ hexo d</span></pre></td></tr></table></figure></p>
 <p>不管你有没有自己的域名，现在如果你能通过以上两种方式看到这个页面就算你搭建成功了（恭喜！）：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1440183-019d0909d2027364.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Ok.png">  </p>
 <hr>
@@ -424,7 +424,7 @@
                             <a href="/2016/06/05/Android中实现自定义XMPP消息包收发/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(http://i.imgur.com/AlXNlDS.png)" alt="Android中实现自定义XMPP消息包收发" class="thumbnail-image"></span>
     
 </a>
 
@@ -443,7 +443,7 @@
                             <a href="/2016/02/27/正则表达式学习笔记/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(http://i.imgur.com/c32VcXo.jpg)" alt="正则表达式学习笔记" class="thumbnail-image"></span>
     
 </a>
 
@@ -462,7 +462,7 @@
                             <a href="/2016/01/16/Android studio常见错误/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(http://i.imgur.com/H5vlBf1.png)" alt="怎么解决Android studio导入项目卡死" class="thumbnail-image"></span>
     
 </a>
 
@@ -481,7 +481,7 @@
                             <a href="/2016/01/15/QQ红包插件实现/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(http://i.imgur.com/Jh7Gbo7.png)" alt="QQ抢红包插件实现" class="thumbnail-image"></span>
     
 </a>
 
