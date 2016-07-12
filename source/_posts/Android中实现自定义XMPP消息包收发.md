@@ -174,4 +174,8 @@ banner: http://i.imgur.com/AlXNlDS.png
 	- 写一个类implements IQProvider并实现接口中的parseIQ(XmlPullParser parser)方法，然后在该方法中做出对应的解析过程，最后通过返回值返回上一个步骤中的IQ对象。
 	- 服务器返回的iq消息中的消息体必须带有命名空间。
 	- 需要通过这个方法`ProviderManager.getInstance().addIQProvider("resp", "data", new GetDataRespProvider());`添加相应的IQProvider。
-- **如果需还需要实现一些自定义的解析，可以修改asmack源码中的`PacketParserUtils`这个类中对应的方法。**
+- **如果需还需要实现一些自定义的解析，可以修改asmack源码中的`PacketParserUtils`这个类中对应的方法。**  
+
+***
+### 下面是源码地址：  
+点击：[<font color=#0000FF>下载地址</font>](https://github.com/tiandawu/IotXmpp)
