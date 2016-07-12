@@ -3,14 +3,20 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Archive: 2016/2 | Devbird&#39;s blog</title>
+    <title>sql笔记 | Devbird&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Devbird's blog">
-<meta property="og:url" content="http://tiandawu.github.io/archives/2016/02/index.html">
+    <meta name="description" content="sql语句是数据库很重要的一部分，这篇文章主要记录了一些基本的sql语法，包括对数据库的操作、对表的增删改查、以及数据约束和多表查询等。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sql笔记">
+<meta property="og:url" content="http://tiandawu.github.io/2016/07/12/sql笔记/index.html">
 <meta property="og:site_name" content="Devbird's blog">
+<meta property="og:description" content="sql语句是数据库很重要的一部分，这篇文章主要记录了一些基本的sql语法，包括对数据库的操作、对表的增删改查、以及数据约束和多表查询等。">
+<meta property="og:image" content="http://i.imgur.com/4veQYiv.png">
+<meta property="og:updated_time" content="2016-07-12T05:07:20.078Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Devbird's blog">
+<meta name="twitter:title" content="sql笔记">
+<meta name="twitter:description" content="sql语句是数据库很重要的一部分，这篇文章主要记录了一些基本的sql语法，包括对数据库的操作、对表的增删改查、以及数据约束和多表查询等。">
+<meta name="twitter:image" content="http://i.imgur.com/4veQYiv.png">
     
 
     
@@ -190,50 +196,344 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2016</h1>
-            </div>
+            <section id="main"><article id="post-sql笔记" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            
+	
+		<img src="http://i.imgur.com/4veQYiv.png" class="article-banner" />
+	
+
+
+
+
+        
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/02/27/正则表达式学习笔记/">正则表达式学习笔记</a>
+        <h1 class="article-title" itemprop="name">
+            sql笔记
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/02/27/正则表达式学习笔记/">
-            <time datetime="2016-02-27T06:40:35.000Z" itemprop="datePublished">2016-02-27</time>
+        <a href="/2016/07/12/sql笔记/">
+            <time datetime="2016-07-12T04:50:42.000Z" itemprop="datePublished">2016-07-12</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/笔记/">笔记</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/学习笔记/">学习笔记</a>
     </div>
 
-                </div>
-            </div>
+                    </div>
+                
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>sql语句是数据库很重要的一部分，这篇文章主要记录了一些基本的sql语法，包括对数据库的操作、对表的增删改查、以及数据约束和多表查询等。<br><a id="more"></a></p>
+<h2 id="一、数据库管理"><a href="#一、数据库管理" class="headerlink" title="一、数据库管理"></a>一、数据库管理</h2><ol>
+<li>查询所有数据库<br> <code>show databases;</code></li>
+<li>创建数据库<br> <code>create database test;</code></li>
+<li>查看数据库的默认字符集<br><code>show create database test;</code></li>
+<li>删除数据库<br><code>drop database test;</code></li>
+<li>修改数据库默认字符集<br><code>alter database test default character set utf8;</code></li>
+</ol>
+<hr>
+<h2 id="二、表管理"><a href="#二、表管理" class="headerlink" title="二、表管理"></a>二、表管理</h2><ol>
+<li>查看所有表<br> <code>show tables;</code></li>
+<li>创建表<br> <code>create table student(id int,name varchar(20),age int);</code></li>
+<li>查看表结构<br> <code>desc student;</code></li>
+<li>删除表<br> <code>drop table student;</code></li>
+<li>修改表  <ul>
+<li>添加字段<br>  <code>alter table student add column gender varchar(10);</code></li>
+<li>删除字段<br>  <code>alter table student drop column gender;</code></li>
+<li>修改字段类型<br>  <code>alter table student modify column age varchar(10);</code></li>
+<li>修改字段名称<br>  <code>alter table student change column name sname varchar(20);</code></li>
+<li>修改表名称<br>  <code>alter table student rename to teacher;</code></li>
+</ul>
+</li>
+<li>增删改数据  <ul>
+<li>增加数据  <ul>
+<li>插入所有字段<br>  <code>insert into student values(1,&#39;devbird&#39;,10);</code></li>
+<li>插入部分字段<br>  <code>insert into student(id,name) values(2,&#39;dawu&#39;)</code></li>
+</ul>
+</li>
+<li>修改数据<br>  <code>update student set age=20,gender=&#39;男&#39; where id=1;</code></li>
+<li>删除数据  <ul>
+<li>带条件的删除<br>  <code>delete from student where id=2;</code></li>
+</ul>
+</li>
+<li>删除所有数据<ul>
+<li>方式一：<code>delete from student;</code></li>
+<li>方式二：<code>truncate table student;</code></li>
+<li>两种方式区别：<ul>
+<li>delete from: ①可以带条件删除；②只能删除表的数据，不能删除表的约束；③使用delete from删除的数据可以回滚（事务）。</li>
+<li>truncate table:①不能带条件删除；②既可以删除表的数据，也可以删除表的约束；③使用truncate table删除的数据不能回滚（事务）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>查询数据</p>
+<ul>
+<li>查询所有列<br>  <code>select * from student;</code></li>
+<li>查询指定列<br>  <code>select id,name from student;</code></li>
+<li>查询时添加常量列class<br>  <code>select id,name,&#39;class&#39; from student;</code></li>
+<li>查询时合并列<br>  <code>select id name,(math+english) as &#39;总成绩&#39; from student;</code></li>
+<li>查询时去除重复记录<br>  <code>select distinct gender from student;</code></li>
+<li><p>条件查询  </p>
+<ul>
+<li>逻辑条件： and(与)  or(或)<ul>
+<li><code>select * from student where id=1 and name=&#39;devbird&#39;;</code></li>
+<li><code>select * from student where id=1 or name=&#39;devbird&#39;;</code></li>
+</ul>
+</li>
+<li>比较条件：&gt;, &lt;, &gt;=, &lt;=, =, &lt;&gt;(不等于), between A and B(等价于&gt;=A 且&lt;=B)  <ul>
+<li><code>select * from student where math&gt;60;</code></li>
+<li><code>select * from student where math&gt;=60 and math&lt;=90;</code></li>
+<li><code>select * from student where math between 60 and 90;</code></li>
+<li><code>select * from student where age&lt;&gt;20;</code></li>
+</ul>
+</li>
+<li>判空条件：is null, is not null, =’’, &lt;&gt;’’  <ul>
+<li><code>select * from student where address is null;</code></li>
+<li><code>select * from student where address=&#39;&#39;;</code></li>
+</ul>
+</li>
+<li>模糊条件：like<ul>
+<li>%:表示任意个字符；</li>
+<li>_：表示一个字符；</li>
+<li>查询姓李的学生：<code>select * from student where name like &#39;李%&#39;;</code></li>
+<li>查询姓李且名字只有两个字的学生：<code>select * from student where name like &#39;李_&#39;;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>聚合查询<br>  -常用的聚合函数：<code>sum(), max(), min(), avg(), count()</code></p>
+<ul>
+<li>查询学生math的总成绩：<code>select sum(math) as &#39;数学总成绩&#39; from student;</code></li>
+<li>查询math最高分：<code>select max(math) as &#39;最高分&#39; from student;</code></li>
+<li>查询math最低分：<code>select min(math) as &#39;最低分&#39; from student;</code></li>
+<li>查询math平均分：<code>select avg(math) as &#39;数学平均分&#39; from student;</code></li>
+<li>统计有多少学生：<code>select count(*) from student;</code></li>
+</ul>
+</li>
+<li>分页查询  <ul>
+<li>分页： limit 其实行，查询几行</li>
+<li>分页查询当前页数据的sql：<code>select * from student limit (当前页-1)*每页显示多少条，每页显示多少条;</code></li>
+</ul>
+</li>
+<li>查询排序  <ul>
+<li>语法：order by 字段 asc/desc  (asc:升序；desc:降序)</li>
+<li><code>select * from student order by math asc;</code> </li>
+<li><code>select * from student order by math desc;</code></li>
+</ul>
+</li>
+<li>分组查询  <ul>
+<li>按性别分组：<code>select * from student group by gender;</code></li>
+<li>统计每组的人数：<code>select gender,count(*) from student group by gender;</code></li>
+</ul>
+</li>
+<li>分组查询后筛选<br>  -查询总人数大于二的性别：<code>select gender,count(*) from student group by gender having count(*)&gt;2;</code></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="三、数据约束"><a href="#三、数据约束" class="headerlink" title="三、数据约束"></a>三、数据约束</h2><ol>
+<li>默认值<br> <code>create table student(id int,name varchar(20),address varchar(30) default &#39;重庆&#39;);</code></li>
+<li>非空<br> <code>create table student(id int,name varchar(20),gender varchar(10) not null);</code></li>
+<li>唯一<br> <code>create table student(id int unique,name varchar(20));</code></li>
+<li>主键<br> <code>create table student(id int primary key,name varchar(20));</code></li>
+<li>自增长<br> <code>create table student(id int primary key auto_increment,name varchar(20));</code></li>
+<li>外键  <ul>
+<li>主表：<code>create table dept(id int primary key,deptName varchar(20));</code></li>
+<li>副表：<code>create table employee(id int primary key,empName varchar(20),deptId int,constraint employee_dept_fk foreign key(deptId) references dept(id));</code></li>
+<li>当有了外键约束，添加数据的顺序： 先添加主表，再添加副表数据。</li>
+<li>当有了外键约束，修改数据的顺序： 先修改副表，再修改主表数据。</li>
+<li>当有了外键约束，删除数据的顺序： 先删除副表，再删除主表数据。</li>
+</ul>
+</li>
+<li>级联操作<ul>
+<li>级联修改： ON UPDATE CASCADE</li>
+<li>级联删除： ON DELETE CASCADE</li>
+<li>主表：<code>create table dept(id int primary key,deptName varchar(20));</code></li>
+<li>副表：<code>create table employee(id int primary key,empName varchar(20),deptId int,constraint employee_dept_fk foreign key(deptId) references dept(id) on update cascade on delete cascade);</code></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="四、多表查询"><a href="#四、多表查询" class="headerlink" title="四、多表查询"></a>四、多表查询</h2><ul>
+<li><strong>内连接查询</strong><ul>
+<li>方式一：<code>select empName,deptName from employee,dept where employee.deptId=dept.id;</code></li>
+<li>方式二：<code>select empName,deptName from employee inner join dept on employee.deptId=dept.id;</code></li>
+<li>使用别名：<code>SELECT e.empName,d.deptName FROM employee e INNER JOIN dept d ON e.deptId=d.id;</code></li>
+</ul>
+</li>
+<li><strong>左[外]连接查询</strong><ul>
+<li><code>SELECT d.deptName,e.empName FROM dept d LEFT OUTER JOIN employee e ON d.id=e.deptId;</code></li>
+<li>用左边表的数据去匹配右边表的数据，如果符合连接条件的结果则显示，如果不符合连接条件则显示null,左外连接：左表的数据一定会完成显示!</li>
+</ul>
+</li>
+<li><strong>右[外]连接查询</strong><ul>
+<li><code>SELECT d.deptName,e.empName FROM employee e FROM employee e RIGHT OUTER JOIN dept d ON d.id=e.deptId;</code></li>
+<li>使用右边表的数据去匹配左边表的数据，如果符合连接条件的结果则显示，如果不符合连接条件则显示null,右外连接：右表的数据一定会完成显示！</li>
+</ul>
+</li>
+<li><strong>自连接查询</strong><ul>
+<li><code>SELECT e.empName,b.empName FROM employee e LEFT OUTER JOIN employee b ON e.bossId=b.id;</code></li>
+</ul>
+</li>
+</ul>
+
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
 </div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://tiandawu.github.io/2016/07/12/sql笔记/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://tiandawu.github.io/2016/07/12/sql笔记/">去评论</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2016/06/05/Android中实现自定义XMPP消息包收发/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Android中实现自定义XMPP消息包收发</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div class="ds-thread" data-thread-key="2016/07/12/sql笔记/" data-title="sql笔记" data-url="http://tiandawu.github.io/2016/07/12/sql笔记/"></div>
+    <style>
+        #ds-thread #ds-reset .ds-textarea-wrapper {
+            background: none;
+        }
+        #ds-reset .ds-avatar img {
+            box-shadow: none;
+        }
+        #ds-reset .ds-gradient-bg {
+            background: #f7f7f7;
+        }
+        #ds-thread #ds-reset li.ds-tab a {
+            border-radius: 3px;
+        }
+        #ds-thread #ds-reset .ds-post-button {
+            color: white;
+            border: none;
+            box-shadow: none;
+            background: #d32;
+            text-shadow: none;
+            font-weight: normal;
+            font-family: 'Microsoft Yahei';
+        }
+        #ds-thread #ds-reset .ds-post-button:hover {
+            color: white;
+            background: #DE594C;
+        }
+        #ds-thread #ds-reset .ds-post-button:active {
+            background: #d32;
+        }
+        #ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current {
+            color: white;
+            background: #d32;
+            box-shadow: none;
+            text-shadow: none;
+            font-weight: normal;
+        }
+    </style>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
