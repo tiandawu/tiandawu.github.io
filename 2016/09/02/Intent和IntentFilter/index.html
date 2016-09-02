@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Intent和IntentFilter | Devbird&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="作为四大组件的枢纽，Intent和IntentFilter起着功不可没的作用，所以有必要好好做个总结。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Intent和IntentFilter">
+<meta property="og:url" content="http://tiandawu.github.io/2016/09/02/Intent和IntentFilter/index.html">
+<meta property="og:site_name" content="Devbird's blog">
+<meta property="og:description" content="作为四大组件的枢纽，Intent和IntentFilter起着功不可没的作用，所以有必要好好做个总结。">
+<meta property="og:image" content="http://img.blog.csdn.net/20160831202518465">
+<meta property="og:updated_time" content="2016-09-02T09:37:05.442Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Intent和IntentFilter">
+<meta name="twitter:description" content="作为四大组件的枢纽，Intent和IntentFilter起着功不可没的作用，所以有必要好好做个总结。">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160831202518465">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.png" />
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
+    
+    
+    
+    
+
+</head>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Devbird&#39;s blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">主页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">主页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">devbird</h2>
+            <h3 id="title">Android Developer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Chongqing, China</span>
+            <a id="follow" target="_blank" href="https://github.com/tiandawu/">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                8
+                <span>文章</span>
+                <!-- 
+                <span>posts</span>
+                -->
+            </div>
+            <div class="article-info-block">
+                4
+                <span>标签</span>
+                <!-- 
+                <span>tags</span>
+                -->
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/tiandawu/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="http://weibo.com/2983214487/" target="_blank" title="weibo" class=tooltip>
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="http://www.jianshu.com/users/6416437b4d88/" target="_blank" title="book" class=tooltip>
+                            <i class="fa fa-book"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-Intent和IntentFilter" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Intent和IntentFilter
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/09/02/Intent和IntentFilter/">
+            <time datetime="2016-09-02T09:35:27.000Z" itemprop="datePublished">2016-09-02</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Android总结/">Android总结</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>作为四大组件的枢纽，Intent和IntentFilter起着功不可没的作用，所以有必要好好做个总结。</p>
+<a id="more"></a>
+<h3 id="一、Intent"><a href="#一、Intent" class="headerlink" title="一、Intent"></a>一、Intent</h3><p>Intent分为两种类型：显式Intent、隐式Intent</p>
+<ul>
+<li>显示Intent:指定要启动组件的名称(类的全路径名)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// Executed in an Activity, so &apos;this&apos; is the Context</div><div class="line">// The fileUrl is a string URL, such as &quot;http://www.example.com/image.png&quot;</div><div class="line">Intent downloadIntent = new Intent(this, DownloadService.class);</div><div class="line">downloadIntent.setData(Uri.parse(fileUrl));</div><div class="line">startService(downloadIntent);</div></pre></td></tr></table></figure>
+<ul>
+<li>隐式Intent:不指定特定的组件，而是通过设置常规操作，如：<code>Action</code>、<code>Data</code>、<code>Category</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// Create the text message with a string</div><div class="line">Intent sendIntent = new Intent();</div><div class="line">sendIntent.setAction(Intent.ACTION_SEND);</div><div class="line">sendIntent.putExtra(Intent.EXTRA_TEXT, textMessage);</div><div class="line">sendIntent.setType(&quot;text/plain&quot;);</div><div class="line"></div><div class="line">// Verify that the intent will resolve to an activity</div><div class="line">if (sendIntent.resolveActivity(getPackageManager()) != null) &#123;</div><div class="line">    startActivity(sendIntent);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在构造Intent的时候可以给这个Intent指定这些信息：<br><code>Component name</code>、<code>Action</code>、<code>Data</code>、<code>Category</code>、<code>Extras</code>、<code>Flags</code></p>
+<p>①<code>Component name</code>:主要是用来指定组件名称，可以通过<code>setComponent()</code>、<code>setClass()</code>、<code>setClassName()</code> 或者直接通过Intent的构造函数来指定组件名称。<br>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Intent intent = new Intent();</div><div class="line">//Intent intent = new Intent(this, BJActivity.class);//通过构造函数指定组件名</div><div class="line">ComponentName component = new ComponentName(this, BJActivity.class);</div><div class="line">intent.setComponent(component);//通过setComponent()方法指定组件名</div><div class="line">//intent.setClass(this, BJActivity.class);//通过setClass()指定组件名</div><div class="line">//intent.setClassName(this, &quot;com.tiandawu.nougat.BJActivity&quot;);//通过setClassName()指定组件名</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure></p>
+<p>② <code>Action</code>:主要用来指定Intent的动作，可以通过<code>setAction()</code> 来指定Intent的动作。<br>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Intent intent = new Intent();</div><div class="line">intent.setAction(Intent.ACTION_CALL);//拨打电话的动作</div><div class="line">intent.setData(Uri.parse(&quot;tel:10086&quot;));//携带的数据</div><div class="line">this.startActivity(intent);</div></pre></td></tr></table></figure></p>
+<p>Action的种类很多，具体种类可以去官网的Intent类中查看。</p>
+<p>③ <code>Data</code>:主要用来指定Intent携带的数据，可以通过<code>setData()</code> 来指定Intent携带的数据。例如上面的例子中就就通过<code>setData</code> 来指定携带了电话号码。</p>
+<blockquote>
+<p>setData()和setType()的注意事项：<br>当要指定data和type的时候请使setDataAndType()，因为用setData和setType()来分别制定data和type时，setData()和setType()都会清除对方的值。</p>
+</blockquote>
+<p>④ <code>Category</code>:主要用于隐式Intent，用来指定类别，通过<code>addCategory()</code> 来指定类别。主要用途是用来匹配Intent-Filter中的&lt;category&gt; 标签中的元素。后面会在IntentFilter中作详细讲解。</p>
+<p>⑤ <code>Extras</code>: 主要用于携带完成请求操作所需的附加信息的键值对，通过<code>putExtra()</code> 方法来存入键值对。<br>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">intent.putExtra(&quot;strKey&quot;, &quot;strValue&quot;);//存入一个字符串键值对</div><div class="line">intent.putExtra(&quot;intKey&quot;, 20);//存入一个int型的键值对</div></pre></td></tr></table></figure></p>
+<p><code>putExtra()</code> 能存入很多基本数据类型，还可以put对象，通过这个方法就可以完成Activity之间的数据交互。</p>
+<p><code>Flags</code> 见名思意，可以用来携带标志，通过<code>setFlags()</code> 就可以指定所需要的标志。<br>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Intent intent = new Intent();</div><div class="line">intent.setClass(this, MyActivity.class);</div><div class="line">intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);//新开一个任务栈，来启动Activity</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure></p>
+<p>能指定的Flags有很多，具体的Flags有哪些可以去官网的Intent类中查看。</p>
+<hr>
+<h3 id="二、IntentFilter"><a href="#二、IntentFilter" class="headerlink" title="二、IntentFilter"></a>二、IntentFilter</h3><p>IntentFilter是用来过滤Intent的，当用隐式Intent来启动一个Activity的时候，就会匹配<code>Intent</code>携带的信息和<code>intent-filter</code> 中的过滤信息，当这些信息匹配成功则启动Activity。<code>intent-filter</code> 的过滤信息分为三类，分别是：<code>action类</code>、<code>category类</code>、<code>data类</code>。<br>一个&lt;Activity&gt; 节下面可以包含多个&lt;intent-filter&gt; 节，当一个Intent能匹配任何一个&lt;intent-filter&gt; 中的<code>action类</code>、<code>category类</code> 和 <code>data类</code> 时则匹配成功，此时才能启动目标Activity。<br><img src="http://img.blog.csdn.net/20160831202518465" alt="这里写图片描述"></p>
+<p>下面是一个Activity中的过滤规则示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;activity android:name=&quot;.TestActivity&quot; &gt;</div><div class="line">    &lt;!--第一组intent-filter--&gt;</div><div class="line">    &lt;intent-filter&gt;</div><div class="line">        &lt;action android:name=&quot;com.tdw.action_1&quot; /&gt;</div><div class="line">        &lt;action android:name=&quot;com.tdw.action_2&quot; /&gt;</div><div class="line">        &lt;category android:name=&quot;com.tdw.category_1&quot; /&gt;</div><div class="line">        &lt;category android:name=&quot;com.tdw.category_2&quot; /&gt;</div><div class="line">        &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;</div><div class="line">        &lt;data android:mimeType=&quot;image/*&quot; /&gt;</div><div class="line">        &lt;data android:mimeType=&quot;video/*&quot; /&gt;</div><div class="line">    &lt;/intent-filter&gt;</div><div class="line">    &lt;!--第二组intent-filter--&gt;</div><div class="line">    &lt;intent-filter&gt;</div><div class="line">        &lt;action android:name=&quot;com.tdw.action_group_2&quot; /&gt;</div><div class="line">        &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;</div><div class="line">        &lt;data android:mimeType=&quot;image/*&quot; /&gt;</div><div class="line">    &lt;/intent-filter&gt;</div><div class="line">&lt;/activity&gt;</div></pre></td></tr></table></figure></p>
+<p>在这个&lt;Activity&gt;中有两组&lt;intent-filter&gt;，只要一个Intent能匹配其中任意一组&lt;intent-filter&gt;即可。这里的匹配是指需要同时匹配一组中的action类别、categroy类别和data类别。<br>下面分别详细介绍这三个类别的匹配规则。</p>
+<p><strong>1、<code>action</code> 的匹配规则</strong><br>从上面的例子中可以看出，一个<code>intent-filter</code>中可以有多个<code>action</code>，如果Intent中的action和过滤规则中action的字符串相同(区分大小写)，则匹配。如果<code>intent-filter</code>中有多个action，那么只要匹配上过滤规则中的一个action也算匹配成功。如果Intent中没有指定action或则与<code>intent-filter</code>中的action一个也没匹配上，则匹配失败。比如：Intent中action的值为<code>com.tdw.action_1</code> 或 <code>com.tdw.action_2</code>就算匹配成功，如果一个都不相同则匹配失败。</p>
+<p><strong>2、<code>category</code> 的匹配规则</strong><br><code>category</code> 的匹配规则和<code>action</code>的匹配规则有所不同。如果Intent中携带了<code>category</code>，不管有几个<code>category</code>，对于携带的每个<code>category</code> 来说，它必须是过滤规则中已经定义好了的<code>category</code>。但是Intent中也可以没有携带<code>category</code>，如果没有的话也可以匹配成功，因为系统在调用<code>startActivity</code> 或者 <code>startActivityForResult</code> 的时候会默认为Intent加上“android.intent.category.DEFAULT”这个<code>category</code>。与<code>action</code> 不同的是，<code>action</code> 是要求Intent中必须有一个<code>action</code> 且必须能够和过滤规则中的某个<code>action</code> 相同。</p>
+<p><strong>3、<code>data</code>的匹配规则</strong><br>要了解<code>data</code> 的匹配规则首先要了解<code>data</code> 的语法，所以还是先来学习<code>data</code> 的语法。</p>
+<p><code>data</code> 的语法示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;data</div><div class="line">   android:scheme=&quot;string&quot;</div><div class="line">   android:host=&quot;string&quot; </div><div class="line">   android:por=&quot;string&quot;</div><div class="line">   android:path=&quot;string&quot;</div><div class="line">   android:pathPattern=&quot;string&quot;</div><div class="line">   android:pathPrefix=&quot;string&quot;</div><div class="line">   android:mimeType=&quot;string&quot;/&gt;</div></pre></td></tr></table></figure></p>
+<p><code>data</code> 由两部份组成，mimeType和URI。mimeType指媒体类型，比如：<code>image/jpeg</code> 和 <code>video/*</code> 可以分别表示图片和视频。mimeType的媒体类型有很多，具体需要用时可以去查看。而URI中包含的数据就比较多了，URI的结构如下：</p>
+<blockquote>
+<p>&lt;scheme&gt;://&lt;host&gt;:&lt;port&gt;/[&lt;path&gt;|&lt;pathPrefix&gt;|&lt;pathPattern&gt;]</p>
+</blockquote>
+<p>具体示例：<br><code>content://com.example.project:200/folder/subfolder/et</code><br><code>http://www.google.com:80/search/info</code></p>
+<p>通过两个具体示例和URI的结构示例对照看就很清楚URI的含义了。<br><strong><em>scheme:</em></strong> URI的模式，比如http、file、content等，如果URI中没有指定scheme,那么整个URI的其他参数无效，这也意味着URI无效。<br><strong><em>host:</em></strong> URI的主机名，比如：www.google.com，如果host为指定，那么整个URI的其他参数无效，这也意味着着URI无效。<br><strong><em>port:</em></strong> URI的端口号，比如：80，仅当URI中指定了scheme和host参数的时候port参数才是有意义的。<br><strong><em>path、pathPattern、和pathPrefix:</em></strong> 这三个参数表述路径信息，其中<code>path</code>表示完整的路径信息； <code>pathPattern</code>也表示完整的路径信息，大师它里面可以包含通配符<code>(*)</code>,  通配符<code>(*)</code> 表示0个或多个任意字符，需要注意的是，由于正则表达式的规范，如果想表示真实的字符串，那么<code>*</code> 要写成<code>\\*</code> ,<code>\</code>要写成<code>\\\</code>;<code>pathPrefix</code> 表示路径的前缀信息。</p>
+<p><code>data</code> 的匹配规则和<code>action</code> 类似，它也要求Intent中必须含有<code>data</code> 数据，并且<code>data</code> 数据能够完全匹配过滤规则中的某一个<code>data</code>。这里的完全匹配是指过滤规则中出现的<code>data</code> 部分也出现在了Intent中的<code>data</code> 中。</p>
+<ul>
+<li>示例1：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;intent-filter&gt;</div><div class="line">    &lt;data android:mimeType=&quot;image/*&quot; /&gt;</div><div class="line">    ...</div><div class="line">&lt;/intent-filter&gt;</div></pre></td></tr></table></figure>
+<p>这个示例当中，mimeType指定的媒体类型是图片，那么Intent中的mimeType属性也必须为”image/*“才能匹配，这种情况下虽然没有指定URI，但是确是有默认值，URI的默认值为<code>content</code>和<code>file</code>。也就是说，虽然没有指定URI,但是Intent中的URI部分的<code>scheme</code> 必须为<code>content</code>或则<code>file</code>才能匹配。所以Intent中的<code>scheme</code> 可以这么写：</p>
+<blockquote>
+<p>intent.setDataAndType(Uri.parse(“file://abc”),”image/*”)</p>
+</blockquote>
+<p>注意的是：如果要为Intent指定完整的<code>data</code> ，必须用<code>setDataAndType</code> 方法，不能先调用<code>setData</code> 再调用<code>setType</code> ,因为这两个方法在调用时会彼此清除对方的值。</p>
+<ul>
+<li>示例2：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;intent-filter&gt;</div><div class="line">    &lt;data android:mimeType=&quot;video/mpeg&quot; android:schema=&quot;http&quot; .../&gt;</div><div class="line">    &lt;data android:mimeType=&quot;audio/mpeg&quot; android:scheme=&quot;http&quot; .../&gt;</div><div class="line">    ...</div><div class="line">&lt;/intent-filter&gt;</div></pre></td></tr></table></figure>
+<p>这种规则指定了两组<code>data</code> 规则，且每个<code>data</code> 都指定了完整的属性值，既有URI又有<code>mimeType</code>。为了匹配示例2中的规则，可以在写出如下示例：</p>
+<blockquote>
+<p>intent.setDataAndType(Uri.parse(“<a href="http://abc&quot;),&quot;video/mpeg" target="_blank" rel="external">http://abc&quot;),&quot;video/mpeg</a>“)</p>
+</blockquote>
+<p>或则是</p>
+<blockquote>
+<p>intent.setDataAndType(Uri.parse(“<a href="http://abc&quot;),&quot;audio/mpeg" target="_blank" rel="external">http://abc&quot;),&quot;audio/mpeg</a>“)</p>
+</blockquote>
+<ul>
+<li>示例3：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;!--第一种--&gt;</div><div class="line">&lt;intent-filter&gt;</div><div class="line">    &lt;data</div><div class="line">        android:scheme=&quot;file&quot;</div><div class="line">        android:host=&quot;www.google.com&quot; /&gt;</div><div class="line">    ...</div><div class="line">&lt;/intent-filter&gt;</div><div class="line">&lt;!--第二种--&gt;</div><div class="line">&lt;intent-filter&gt;</div><div class="line">    &lt;data android:scheme=&quot;file&quot; /&gt;</div><div class="line">    &lt;data android:host=&quot;www.google.com&quot; /&gt;</div><div class="line">    ...</div><div class="line">&lt;/intent-filter&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这是 <code>data</code> 特殊情况，如上两种写法，作用是一样的。</p>
+<hr>
+<p><strong><em>参考书籍：</em></strong> Android开发艺术探索<br><strong><em>参考网站：</em></strong> Android官方文档</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://tiandawu.github.io/2016/09/02/Intent和IntentFilter/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://tiandawu.github.io/2016/09/02/Intent和IntentFilter/">去评论</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2016/08/29/Nougat多窗口支持/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Nougat多窗口支持</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div class="ds-thread" data-thread-key="2016/09/02/Intent和IntentFilter/" data-title="Intent和IntentFilter" data-url="http://tiandawu.github.io/2016/09/02/Intent和IntentFilter/"></div>
+    <style>
+        #ds-thread #ds-reset .ds-textarea-wrapper {
+            background: none;
+        }
+        #ds-reset .ds-avatar img {
+            box-shadow: none;
+        }
+        #ds-reset .ds-gradient-bg {
+            background: #f7f7f7;
+        }
+        #ds-thread #ds-reset li.ds-tab a {
+            border-radius: 3px;
+        }
+        #ds-thread #ds-reset .ds-post-button {
+            color: white;
+            border: none;
+            box-shadow: none;
+            background: #d32;
+            text-shadow: none;
+            font-weight: normal;
+            font-family: 'Microsoft Yahei';
+        }
+        #ds-thread #ds-reset .ds-post-button:hover {
+            color: white;
+            background: #DE594C;
+        }
+        #ds-thread #ds-reset .ds-post-button:active {
+            background: #d32;
+        }
+        #ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current {
+            color: white;
+            background: #d32;
+            box-shadow: none;
+            text-shadow: none;
+            font-weight: normal;
+        }
+    </style>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/02/Intent和IntentFilter/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Android总结/">Android总结</a></p>
+                            <p class="item-title"><a href="/2016/09/02/Intent和IntentFilter/" class="title">Intent和IntentFilter</a></p>
+                            <p class="item-date"><time datetime="2016-09-02T09:35:27.000Z" itemprop="datePublished">2016-09-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/08/29/Nougat多窗口支持/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2016/08/29/Nougat多窗口支持/" class="title">Nougat多窗口支持</a></p>
+                            <p class="item-date"><time datetime="2016-08-29T09:12:18.000Z" itemprop="datePublished">2016-08-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/07/12/sql笔记/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://i.imgur.com/4veQYiv.png)" alt="sql笔记" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/2016/07/12/sql笔记/" class="title">sql笔记</a></p>
+                            <p class="item-date"><time datetime="2016-07-12T04:50:42.000Z" itemprop="datePublished">2016-07-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/06/05/Android中实现自定义XMPP消息包收发/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://i.imgur.com/AlXNlDS.png)" alt="Android中实现自定义XMPP消息包收发" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2016/06/05/Android中实现自定义XMPP消息包收发/" class="title">Android中实现自定义XMPP消息包收发</a></p>
+                            <p class="item-date"><time datetime="2016-06-05T01:46:14.000Z" itemprop="datePublished">2016-06-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/02/27/正则表达式学习笔记/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://i.imgur.com/c32VcXo.jpg)" alt="正则表达式学习笔记" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/2016/02/27/正则表达式学习笔记/" class="title">正则表达式学习笔记</a></p>
+                            <p class="item-date"><time datetime="2016-02-27T06:40:35.000Z" itemprop="datePublished">2016-02-27</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android总结/">Android总结</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/笔记/">笔记</a><span class="category-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMPP/">XMPP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/踩过的坑/">踩过的坑</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/XMPP/" style="font-size: 10px;">XMPP</a> <a href="/tags/学习笔记/" style="font-size: 15px;">学习笔记</a> <a href="/tags/踩过的坑/" style="font-size: 10px;">踩过的坑</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">友情链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+           &copy; 2016 devbird<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> | Theme by <a href="http://github.com/tiandawu/hexo-theme-icarus">icarus</a> | <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259875724'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1259875724%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'true'};
+    (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+
+
+
+    
+        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
+    
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
