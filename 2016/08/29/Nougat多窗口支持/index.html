@@ -3,20 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Hexo+github搭建个人博客 | Devbird&#39;s blog</title>
+    <title>Nougat多窗口支持 | Devbird&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="这篇文章主要讲解怎么利用Hexo和github来搭建自己的博客！如果你正想搭建一个属于自己的博客！">
+    <meta name="description" content="在Android7.0中引入了类似PC上多窗口的支持，屏幕上能同时显示多个，用户在与另一个应用交互的同时可以继续播放视频。如果是用N Preview SDK构建应用,则可以配置应用的多窗口显示方法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo+github搭建个人博客">
-<meta property="og:url" content="http://tiandawu.github.io/2016/01/14/BuildMyBlog/index.html">
+<meta property="og:title" content="Nougat多窗口支持">
+<meta property="og:url" content="http://tiandawu.github.io/2016/08/29/Nougat多窗口支持/index.html">
 <meta property="og:site_name" content="Devbird's blog">
-<meta property="og:description" content="这篇文章主要讲解怎么利用Hexo和github来搭建自己的博客！如果你正想搭建一个属于自己的博客！">
-<meta property="og:image" content="http://i.imgur.com/aBvSCNs.jpg">
-<meta property="og:updated_time" content="2016-07-10T13:01:52.947Z">
+<meta property="og:description" content="在Android7.0中引入了类似PC上多窗口的支持，屏幕上能同时显示多个，用户在与另一个应用交互的同时可以继续播放视频。如果是用N Preview SDK构建应用,则可以配置应用的多窗口显示方法。">
+<meta property="og:image" content="http://img.blog.csdn.net/20160826145421231">
+<meta property="og:image" content="http://img.blog.csdn.net/20160828155812448">
+<meta property="og:image" content="http://img.blog.csdn.net/20160828190400237">
+<meta property="og:updated_time" content="2016-09-02T09:15:15.779Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo+github搭建个人博客">
-<meta name="twitter:description" content="这篇文章主要讲解怎么利用Hexo和github来搭建自己的博客！如果你正想搭建一个属于自己的博客！">
-<meta name="twitter:image" content="http://i.imgur.com/aBvSCNs.jpg">
+<meta name="twitter:title" content="Nougat多窗口支持">
+<meta name="twitter:description" content="在Android7.0中引入了类似PC上多窗口的支持，屏幕上能同时显示多个，用户在与另一个应用交互的同时可以继续播放视频。如果是用N Preview SDK构建应用,则可以配置应用的多窗口显示方法。">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160826145421231">
     
 
     
@@ -196,17 +198,8 @@
 </aside>
 
             
-            <section id="main"><article id="post-BuildMyBlog" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Nougat多窗口支持" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
-            
-	
-		<img src="http://i.imgur.com/aBvSCNs.jpg" class="article-banner" />
-	
-
-
-
-
         
         
         
@@ -214,7 +207,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Hexo+github搭建个人博客
+            Nougat多窗口支持
         </h1>
     
 
@@ -223,8 +216,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/01/14/BuildMyBlog/">
-            <time datetime="2016-01-14T02:43:11.000Z" itemprop="datePublished">2016-01-14</time>
+        <a href="/2016/08/29/Nougat多窗口支持/">
+            <time datetime="2016-08-29T09:12:18.000Z" itemprop="datePublished">2016-08-29</time>
         </a>
     </div>
 
@@ -238,41 +231,51 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这篇文章主要讲解怎么利用Hexo和github来搭建自己的博客！如果你正想搭建一个属于自己的博客，那么就不妨动手跟我一起来搭建 ！<br><a id="more"></a> </p>
-<h3 id="一-环境搭建"><a href="#一-环境搭建" class="headerlink" title="一.环境搭建"></a>一.环境搭建</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在搭建之前我们首先要搭建环境，首先要做的是安装<a href="http://git-scm.com/download/" target="_blank" rel="external"><font color="#0000FF">Git</font></a>和<a href="http://nodejs.org/" target="_blank" rel="external"><font color="#0000FF">Node.js(最好翻墙后打开)</font></a>，先去这两个网站官网下载并安装好，安装的过程很简单，就是一路下一步即可！其次要做的是打开你的<strong>git Bash</strong>窗口，输入如下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div></pre></td></tr></table></figure></p>
-<p>完成以上操作后，你就算将<strong>Hexo</strong>也安装好了，安装<strong>Hexo</strong>也可以参看<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external"><font color="#0000FF">Hexo的官网</font></a>。<br>至此，环境搭建已经完成！  </p>
+            <p>在Android7.0中引入了类似PC上多窗口的支持，屏幕上能同时显示多个，用户在与另一个应用交互的同时可以继续播放视频。如果是用N Preview SDK构建应用,则可以配置应用的多窗口显示方法。<br><a id="more"></a></p>
+<h2 id="一、多窗口预览"><a href="#一、多窗口预览" class="headerlink" title="一、多窗口预览"></a>一、多窗口预览</h2><p> <strong>1. 预览图如下：</strong></p>
+<p><img src="http://img.blog.csdn.net/20160826145421231" alt="预览图"></p>
+<p> <strong>2. 用户切换到多窗口模式的方法：</strong></p>
+<ul>
+<li>若用户打开 Overview 屏幕并长按 Activity 标题，则可以拖动该 Activity 至屏幕突出显示的区域，使 Activity 进入多窗口模式。</li>
+<li>若用户长按 Overview 按钮，设备上的当前 Activity 将进入多窗口模式，同时将打开 Overview 屏幕，用户可在该屏幕中选择要共享屏幕的另一个 Activity。</li>
+</ul>
 <hr>
-<h3 id="二-创建本地博客"><a href="#二-创建本地博客" class="headerlink" title="二.创建本地博客"></a>二.创建本地博客</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在本地磁盘新建一个文件夹，我这里命名为：MyBlog，然后鼠标右击该文件夹，打开：<strong>Git Bash Here</strong>。在弹出的命令窗口中输入以下命令:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init yourname.github.io</div></pre></td></tr></table></figure></p>
-<p>需要<strong>注意</strong>的是：这里需要将命令中的<strong>yourname</strong>替换成你的github的账户名，必须要是和账户名一致！<br>执行完这条命令后就会在你刚才新建的文件夹下生成一个名字为：yourname.github.io的文件夹。然后，又执行如下几条命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> yourname.github.io  //<span class="built_in">cd</span>到刚才自动创建的目录下</div><div class="line">$ npm install</div><div class="line">$ hexo g</div><div class="line">$ hexo s</div></pre></td></tr></table></figure></p>
-<p>执行完以上命令后，不要关闭<strong>Git Bash</strong>窗口，用浏览器打开：<a href="http://localhost:4000/" target="_blank" rel="external"><font color="#0000FF">http://localhost:4000/</font></a> 你就会看见自己的本地博客页面了，如图：<br><img src="http://i.imgur.com/s3erhTc.png" alt=""> </p>
+<h2 id="二、多窗口模式配置"><a href="#二、多窗口模式配置" class="headerlink" title="二、多窗口模式配置"></a>二、多窗口模式配置</h2><p>在清单文件（AndroidManifest.xml）中可以对应用的Activit是否支持多窗口显示以及显示方式进行配置。</p>
+<p> <strong>1. 配置是否支持多窗口：</strong></p>
+<p>在清单文件的     &lt;activity&gt;  或  &lt;application&gt; 节点中设置该属性，启用或禁用多窗口显示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:resizeableActivity=[&quot;true&quot; | &quot;false&quot;]</div></pre></td></tr></table></figure>
+<p>如果该属性设置为 true，Activity 将支持多窗口模式。 如果此属性设置为 false，Activity 将不支持多窗口模式,且用户尝试在多窗口模式下启动 Activity，该 Activity 将全屏显示。如果是用Android N SDK构建应用，但未对该属性指定值，则该属性的值默认设为 true。</p>
+<p> <strong>2. 对多窗口显示方式进行配置：</strong></p>
+<p>Android N 在清单文件的 &lt;Activity&gt; 节点下增加了一个 &lt;layout&gt; 标签。该标签支持一下几种属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">android:defaultWidth //多窗口模式下Activity 的默认宽度</div><div class="line">android:defaultHeight //多窗口模式下Activity 的默认高度</div><div class="line">android:gravity //多窗口模式下Activity 的初始位置</div><div class="line">android:minHeight //多窗口模式下Activity 的最小高度</div><div class="line">android:minWidth //多窗口模式下Activity 的最小宽度</div><div class="line"></div><div class="line">/*ps: android:minimalWidth 已经被替换成 android:minWidth</div><div class="line">      android:minimalHeight 已经被替换成 android:minHeight </div><div class="line">	如果还是使用：android:minimalHeight 和 android:minimalWidth 编译不会通过。</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>例如：以下节点显示了如何指定Activity在多窗口模式中显示的大小、位置和最小尺寸：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;activity</div><div class="line">       android:name=&quot;.MyActivity&quot;</div><div class="line">       android:resizeableActivity=&quot;true&quot;&gt;</div><div class="line">       &lt;layout </div><div class="line">	       android:defaultHeight=&quot;500dp&quot;</div><div class="line">           android:defaultWidth=&quot;600dp&quot;</div><div class="line">           android:gravity=&quot;top|end&quot;</div><div class="line">           android:minHeight=&quot;450dp&quot;</div><div class="line">           android:minWidth=&quot;300dp&quot; /&gt;</div><div class="line">   &lt;/activity&gt;</div></pre></td></tr></table></figure>
+<p><strong>3. 多窗口模式禁用的功能：</strong></p>
+<ul>
+<li>无法隐藏状态栏</li>
+<li>系统将忽略对 android:screenOrientation 属性所作的更改</li>
+</ul>
+<p><strong>4. 多窗口模式下常用的方法：</strong></p>
+<ul>
+<li>Activity.isInMultiWindowMode()；<br>调用该方法以确认 Activity 是否处于多窗口模式。</li>
+<li>Activity.onMultiWindowModeChanged()；<br>Activity 进入或退出多窗口模式时系统将调用此方法。 在 Activity 进入多窗口模式时，系统向该方法传递 true 值，在退出多窗口模式时，则传递 false 值。</li>
+</ul>
+<p><strong>5. 在多窗口模式中启动新 Activity</strong><br>如果当前应用处于多窗口模式，想要在该应用启动的Activity显示在当前 Activity 旁边，则需要使用标志位：Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT 和 Intent.FLAG_ACTIVITY_NEW_TASK<br>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Intent intent = new Intent();</div><div class="line">intent.setClass(this, MyActivity.class);</div><div class="line">intent.setFlags(Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT|Intent.FLAG_ACTIVITY_NEW_TASK);</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure>
+<p>启动后两个Activity处于分屏模式，如图：<br><img src="http://img.blog.csdn.net/20160828155812448" alt="启动新Activity"></p>
+<p>如果处于多窗口模式下，可以通过调用 ActivityOptions.setLaunchBounds() 指定新 Activity 的尺寸和屏幕位置，如果不处于多窗口模式则该方法无效。<br>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Rect rect = new Rect(0,400,800,1000);</div><div class="line">ActivityOptions options = ActivityOptions.makeBasic();</div><div class="line">options.setLaunchBounds(rect);</div><div class="line"></div><div class="line">Intent intent = new Intent();</div><div class="line">intent.setClass(this, MyActivity.class);</div><div class="line">intent.setFlags(Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT|Intent.FLAG_ACTIVITY_NEW_TASK);</div><div class="line"></div><div class="line">ActivityCompat.startActivity(this,intent,options.toBundle());</div></pre></td></tr></table></figure>
 <hr>
-<h3 id="三-将本地博客部署到github上"><a href="#三-将本地博客部署到github上" class="headerlink" title="三.将本地博客部署到github上"></a>三.将本地博客部署到github上</h3><h5 id="1-在github上创建一个仓库"><a href="#1-在github上创建一个仓库" class="headerlink" title="1. 在github上创建一个仓库"></a>1. 在github上创建一个仓库</h5><p>按照下图创建：<br><img src="http://upload-images.jianshu.io/upload_images/1440183-2c63ea8a268dfda5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="github上创建仓库.png"><br>填写完成，点解<strong>Create repository</strong>完成创建即可！  </p>
-<h5 id="2-将刚创建的远程仓库更新下来"><a href="#2-将刚创建的远程仓库更新下来" class="headerlink" title="2. 将刚创建的远程仓库更新下来"></a>2. 将刚创建的远程仓库更新下来</h5><p>步骤如下：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;依然是鼠标右击：yourname.github.io打开<strong>Git Bash Here</strong>,执行如下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git init    //初始化git仓库</div><div class="line">$ git remote add origin git@github.com:yourname/yourname.github.io.git  //将yourname替换//给远程仓库添加一个名为：origin 的引用</div><div class="line">$ git fetch origin   //获取远程仓库的内容</div><div class="line">$ git merge origin/master //将获取的内容合并到master分支</div></pre></td></tr></table></figure></p>
-<h5 id="3-修改配置文件"><a href="#3-修改配置文件" class="headerlink" title="3. 修改配置文件"></a>3. 修改配置文件</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;接着用<a href="http://www.sublimetext.com/" target="_blank" rel="external"><font color="#0000FF">sublime</font></a>或者<a href="https://notepad-plus-plus.org/" target="_blank" rel="external"><font color="#0000FF">notepad++</font></a>打开：yourname.github.io文件夹下的这个文件：<strong>_config.yml</strong>，在文件最后做如下修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com:yourname/yourname.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
-<p><strong>以下两步是有自己域名的看：</strong><br>如果你有自己的域名，可以将上面修改如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com:tiandawu/tiandawu.github.io.git</div><div class="line">  branch: master</div><div class="line">  plugins: -hexo-generator-cname</div></pre></td></tr></table></figure></p>
-<p>另外还需要修改的是这里：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">url: http://tiandawu.com       //这里改成自己的域名</div><div class="line">root: /</div><div class="line">permalink: :year/:month/:day/:title/</div><div class="line">permalink_defaults:</div></pre></td></tr></table></figure></p>
-<p>好了，至此配置文件修改完毕。</p>
-<h5 id="4-部署到github"><a href="#4-部署到github" class="headerlink" title="4. 部署到github"></a>4. 部署到github</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;依然来到刚才的<strong>Git Bash</strong>窗口，执行如下命令：<br>有自己域名的需要先执行这条命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-generator-cname --save  //这条命令执行过程较慢，耐心等待！(需要翻墙快)</div></pre></td></tr></table></figure></p>
-<p>下面的命令都需要执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git add .</div><div class="line">$ git commit -m <span class="string">"输入自己的描述信息"</span></div><div class="line">$ git push origin master</div></pre></td></tr></table></figure></p>
-<p>执行完上面的命令，没有配置自己域名的再执行下面两条命令就可访问自己的博客了：(在浏览器中输入：<code>yourname.github.io</code>访问)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div><div class="line">$ hexo d</div></pre></td></tr></table></figure></p>
+<h2 id="三、多窗口的生命周期"><a href="#三、多窗口的生命周期" class="headerlink" title="三、多窗口的生命周期"></a>三、多窗口的生命周期</h2><p>多窗口模式下Activity的生命周期并没有改变，只是在切换到多窗口和退出多窗口模式时有所不同。在这两种切换过程中Activity会被销毁后重新创建，所以在这两种模式下应该通过：onSaveInstanceState 和 onRestoreInstanceState 这两个方法做好数据的保存和恢复。</p>
+<blockquote>
+<p>如果在多窗口模式下播放视频，应该在 onStop() 和 onStart() 这两个方法中去暂停和继续播放，这样会有更好的用户体验。</p>
+</blockquote>
 <hr>
-<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a><em>注意：</em></h3><p>在执行：<code>$ hexo d</code>的时候如果出现下面的错误：<br><img src="http://upload-images.jianshu.io/upload_images/1440183-7cb3c497fd382d00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="发布出错.png"><br>这时候只需要先执行这条命令:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
-<p>然后后再执行下面这条部署命令就行了！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d</div></pre></td></tr></table></figure></p>
-<p>配置了自己域名的还需要执行完下面的命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git fetch origin</div><div class="line">$ git merge origin/master</div></pre></td></tr></table></figure></p>
-<p>配置了自己域名的还需要修改<strong>CNAME</strong>文件，public文件夹下的<strong>CNAME</strong>也要修改，都填写上自己的域名即可！可以参考我填写的<a href="https://github.com/tiandawu/tiandawu.github.io/blob/master/CNAME" target="_blank" rel="external"><font color="#0000FF"><strong>CNAME文件</strong></font></a>。<br>配置了自己域名的最后执行下面命令也能访问了：（可以通过：<code>yourname.github.io</code>或<code>你的域名</code>访问）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git add .</div><div class="line">$ git commit -m <span class="string">"输入自己的描述信息"</span></div><div class="line">$ git push origin master</div><div class="line">$ hexo g</div><div class="line">$ hexo d</div></pre></td></tr></table></figure></p>
-<p>不管你有没有自己的域名，现在如果你能通过以上两种方式看到这个页面就算你搭建成功了（恭喜！）：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1440183-019d0909d2027364.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Ok.png">  </p>
-<hr>
-<h3 id="四-配置Next主题"><a href="#四-配置Next主题" class="headerlink" title="四.配置Next主题"></a>四.配置Next主题</h3><p>Hexo提供了很多的主题，可以参考<a href="https://hexo.io/themes/" target="_blank" rel="external"><font color="#0000FF">丰富多彩的Hexo主题</font></a>，这里我选用的是配置Next主题，<a href="http://tiandawu.github.io/"><font color="#0000FF">我的博客样式</font></a>。具体配置详情，请参考：<a href="http://theme-next.iissnan.com/" target="_blank" rel="external"><font color="#0000FF">Next主题官方文档</font></a>。  </p>
-<hr>
-<h3 id="五-搭建遇到的坑"><a href="#五-搭建遇到的坑" class="headerlink" title="五.搭建遇到的坑"></a>五.搭建遇到的坑</h3><p>我在将主题设置成Next后，在将仓库向github提交了一遍，结果就收到一封这样的邮件：<br><img src="http://upload-images.jianshu.io/upload_images/1440183-be87e8829b5b2cee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="erro info.png">  </p>
-<p>于是我就点了链接，看到给的解决方案是这样的：  </p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1440183-821266a9450dba75.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="解决方案.png"><br>于是我就按照这个方法做，结果出现下面的错误：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1440183-3282635780f355e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="submodule error.png">  </p>
-<p>经过几番尝试，我将之前更新下来的主题全删掉，然后输入下面的命令去下载主题：</p>
-<p><pre><code>git submodule add <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next</a></code></pre><br>如图：  </p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1440183-28ddd196af0bd752.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="添加submodule.png">  </p>
-<p>这样更新下主题后，发现在：<code>yourname.github.io</code>文件夹下会多出一个<strong>.gitmodules</strong>的文件，然后我在按照之前的方法尝试，结果就不出现那个错误，将文件push到远程仓库也不会收到刚才那邮件了，这个坑就这样被填上了！</p>
+<h2 id="四、多窗口模式下数据拖放"><a href="#四、多窗口模式下数据拖放" class="headerlink" title="四、多窗口模式下数据拖放"></a>四、多窗口模式下数据拖放</h2><p>多窗口模式下的拖放，仅仅是数据的拖放，并不能将一个Activity的View拖放到另一个Activity。跨Activity拖放需要：View.DRAG_FLAG_GLOBAL 这个标志。<br>例如从MainActivity拖放一个按钮中的数据到MyActivity中：</p>
+<p>MainActivity:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">btn = (Button) findViewById(R.id.my_button);</div><div class="line">        btn.setOnLongClickListener(new View.OnLongClickListener() &#123;</div><div class="line">            @Override</div><div class="line">            public boolean onLongClick(View view) &#123;</div><div class="line">                ClipData data = ClipData.newPlainText(view.getClass().getName(),</div><div class="line">                        ((Button) view).getText());</div><div class="line">                View.DragShadowBuilder builder = new View.DragShadowBuilder(view);</div><div class="line">                view.startDragAndDrop(data, builder, view, View.DRAG_FLAG_GLOBAL);//跨Activity拖放需要这个标志位</div><div class="line">                return true;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure></p>
+<p>MyActivity：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">textView = (TextView) findViewById(R.id.text);</div><div class="line">View parent = (View) textView.getParent();</div><div class="line"> parent.setOnDragListener(new View.OnDragListener() &#123;</div><div class="line">     @Override</div><div class="line">     public boolean onDrag(View v, DragEvent event) &#123;</div><div class="line">         switch (event.getAction()) &#123;</div><div class="line">             case DragEvent.ACTION_DROP:</div><div class="line">                 ClipData.Item item = event.getClipData().getItemAt(0);</div><div class="line">                 textView.setText(item.getText());</div><div class="line">                 break;</div><div class="line">         &#125;</div><div class="line">         return true;</div><div class="line">     &#125;</div><div class="line"> &#125;);</div></pre></td></tr></table></figure>
+<p>实现效果图：<br><img src="http://img.blog.csdn.net/20160828190400237" alt="多窗口拖放"></p>
 
         
         </div>
@@ -336,7 +339,7 @@
 
             
     
-        <a href="http://tiandawu.github.io/2016/01/14/BuildMyBlog/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://tiandawu.github.io/2016/01/14/BuildMyBlog/">去评论</a>
+        <a href="http://tiandawu.github.io/2016/08/29/Nougat多窗口支持/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://tiandawu.github.io/2016/08/29/Nougat多窗口支持/">去评论</a>
     
 
         </footer>
@@ -345,15 +348,11 @@
         
 <nav id="article-nav">
     
-        <a href="/2016/01/15/QQ红包插件实现/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    QQ抢红包插件实现
-                
-            </div>
-        </a>
     
+        <a href="/2016/07/12/sql笔记/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">sql笔记</div>
+        </a>
     
 </nav>
 
@@ -366,7 +365,7 @@
     <section id="comments">
     
         
-    <div class="ds-thread" data-thread-key="2016/01/14/BuildMyBlog/" data-title="Hexo+github搭建个人博客" data-url="http://tiandawu.github.io/2016/01/14/BuildMyBlog/"></div>
+    <div class="ds-thread" data-thread-key="2016/08/29/Nougat多窗口支持/" data-title="Nougat多窗口支持" data-url="http://tiandawu.github.io/2016/08/29/Nougat多窗口支持/"></div>
     <style>
         #ds-thread #ds-reset .ds-textarea-wrapper {
             background: none;

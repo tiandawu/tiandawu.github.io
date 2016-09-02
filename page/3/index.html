@@ -3,20 +3,14 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Hexo+github搭建个人博客 | Devbird&#39;s blog</title>
+    <title>Devbird&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="这篇文章主要讲解怎么利用Hexo和github来搭建自己的博客！如果你正想搭建一个属于自己的博客！">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hexo+github搭建个人博客">
-<meta property="og:url" content="http://tiandawu.github.io/2016/01/14/BuildMyBlog/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Devbird's blog">
+<meta property="og:url" content="http://tiandawu.github.io/page/3/index.html">
 <meta property="og:site_name" content="Devbird's blog">
-<meta property="og:description" content="这篇文章主要讲解怎么利用Hexo和github来搭建自己的博客！如果你正想搭建一个属于自己的博客！">
-<meta property="og:image" content="http://i.imgur.com/aBvSCNs.jpg">
-<meta property="og:updated_time" content="2016-07-10T13:01:52.947Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo+github搭建个人博客">
-<meta name="twitter:description" content="这篇文章主要讲解怎么利用Hexo和github来搭建自己的博客！如果你正想搭建一个属于自己的博客！">
-<meta name="twitter:image" content="http://i.imgur.com/aBvSCNs.jpg">
+<meta name="twitter:title" content="Devbird's blog">
     
 
     
@@ -196,12 +190,15 @@
 </aside>
 
             
-            <section id="main"><article id="post-BuildMyBlog" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main">
+    <article id="post-BuildMyBlog" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             
 	
-		<img src="http://i.imgur.com/aBvSCNs.jpg" class="article-banner" />
+		<a href="/2016/01/14/BuildMyBlog/" itemprop="url">
+            <img src="http://i.imgur.com/aBvSCNs.jpg" class="article-banner" />
+        </a>
 	
 
 
@@ -213,8 +210,8 @@
             <header class="article-header">
                 
     
-        <h1 class="article-title" itemprop="name">
-            Hexo+github搭建个人博客
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/01/14/BuildMyBlog/">Hexo+github搭建个人博客</a>
         </h1>
     
 
@@ -237,43 +234,10 @@
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这篇文章主要讲解怎么利用Hexo和github来搭建自己的博客！如果你正想搭建一个属于自己的博客，那么就不妨动手跟我一起来搭建 ！<br><a id="more"></a> </p>
-<h3 id="一-环境搭建"><a href="#一-环境搭建" class="headerlink" title="一.环境搭建"></a>一.环境搭建</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在搭建之前我们首先要搭建环境，首先要做的是安装<a href="http://git-scm.com/download/" target="_blank" rel="external"><font color="#0000FF">Git</font></a>和<a href="http://nodejs.org/" target="_blank" rel="external"><font color="#0000FF">Node.js(最好翻墙后打开)</font></a>，先去这两个网站官网下载并安装好，安装的过程很简单，就是一路下一步即可！其次要做的是打开你的<strong>git Bash</strong>窗口，输入如下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div></pre></td></tr></table></figure></p>
-<p>完成以上操作后，你就算将<strong>Hexo</strong>也安装好了，安装<strong>Hexo</strong>也可以参看<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external"><font color="#0000FF">Hexo的官网</font></a>。<br>至此，环境搭建已经完成！  </p>
-<hr>
-<h3 id="二-创建本地博客"><a href="#二-创建本地博客" class="headerlink" title="二.创建本地博客"></a>二.创建本地博客</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在本地磁盘新建一个文件夹，我这里命名为：MyBlog，然后鼠标右击该文件夹，打开：<strong>Git Bash Here</strong>。在弹出的命令窗口中输入以下命令:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init yourname.github.io</div></pre></td></tr></table></figure></p>
-<p>需要<strong>注意</strong>的是：这里需要将命令中的<strong>yourname</strong>替换成你的github的账户名，必须要是和账户名一致！<br>执行完这条命令后就会在你刚才新建的文件夹下生成一个名字为：yourname.github.io的文件夹。然后，又执行如下几条命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> yourname.github.io  //<span class="built_in">cd</span>到刚才自动创建的目录下</div><div class="line">$ npm install</div><div class="line">$ hexo g</div><div class="line">$ hexo s</div></pre></td></tr></table></figure></p>
-<p>执行完以上命令后，不要关闭<strong>Git Bash</strong>窗口，用浏览器打开：<a href="http://localhost:4000/" target="_blank" rel="external"><font color="#0000FF">http://localhost:4000/</font></a> 你就会看见自己的本地博客页面了，如图：<br><img src="http://i.imgur.com/s3erhTc.png" alt=""> </p>
-<hr>
-<h3 id="三-将本地博客部署到github上"><a href="#三-将本地博客部署到github上" class="headerlink" title="三.将本地博客部署到github上"></a>三.将本地博客部署到github上</h3><h5 id="1-在github上创建一个仓库"><a href="#1-在github上创建一个仓库" class="headerlink" title="1. 在github上创建一个仓库"></a>1. 在github上创建一个仓库</h5><p>按照下图创建：<br><img src="http://upload-images.jianshu.io/upload_images/1440183-2c63ea8a268dfda5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="github上创建仓库.png"><br>填写完成，点解<strong>Create repository</strong>完成创建即可！  </p>
-<h5 id="2-将刚创建的远程仓库更新下来"><a href="#2-将刚创建的远程仓库更新下来" class="headerlink" title="2. 将刚创建的远程仓库更新下来"></a>2. 将刚创建的远程仓库更新下来</h5><p>步骤如下：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;依然是鼠标右击：yourname.github.io打开<strong>Git Bash Here</strong>,执行如下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git init    //初始化git仓库</div><div class="line">$ git remote add origin git@github.com:yourname/yourname.github.io.git  //将yourname替换//给远程仓库添加一个名为：origin 的引用</div><div class="line">$ git fetch origin   //获取远程仓库的内容</div><div class="line">$ git merge origin/master //将获取的内容合并到master分支</div></pre></td></tr></table></figure></p>
-<h5 id="3-修改配置文件"><a href="#3-修改配置文件" class="headerlink" title="3. 修改配置文件"></a>3. 修改配置文件</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;接着用<a href="http://www.sublimetext.com/" target="_blank" rel="external"><font color="#0000FF">sublime</font></a>或者<a href="https://notepad-plus-plus.org/" target="_blank" rel="external"><font color="#0000FF">notepad++</font></a>打开：yourname.github.io文件夹下的这个文件：<strong>_config.yml</strong>，在文件最后做如下修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com:yourname/yourname.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
-<p><strong>以下两步是有自己域名的看：</strong><br>如果你有自己的域名，可以将上面修改如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com:tiandawu/tiandawu.github.io.git</div><div class="line">  branch: master</div><div class="line">  plugins: -hexo-generator-cname</div></pre></td></tr></table></figure></p>
-<p>另外还需要修改的是这里：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">url: http://tiandawu.com       //这里改成自己的域名</div><div class="line">root: /</div><div class="line">permalink: :year/:month/:day/:title/</div><div class="line">permalink_defaults:</div></pre></td></tr></table></figure></p>
-<p>好了，至此配置文件修改完毕。</p>
-<h5 id="4-部署到github"><a href="#4-部署到github" class="headerlink" title="4. 部署到github"></a>4. 部署到github</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;依然来到刚才的<strong>Git Bash</strong>窗口，执行如下命令：<br>有自己域名的需要先执行这条命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-generator-cname --save  //这条命令执行过程较慢，耐心等待！(需要翻墙快)</div></pre></td></tr></table></figure></p>
-<p>下面的命令都需要执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git add .</div><div class="line">$ git commit -m <span class="string">"输入自己的描述信息"</span></div><div class="line">$ git push origin master</div></pre></td></tr></table></figure></p>
-<p>执行完上面的命令，没有配置自己域名的再执行下面两条命令就可访问自己的博客了：(在浏览器中输入：<code>yourname.github.io</code>访问)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div><div class="line">$ hexo d</div></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a><em>注意：</em></h3><p>在执行：<code>$ hexo d</code>的时候如果出现下面的错误：<br><img src="http://upload-images.jianshu.io/upload_images/1440183-7cb3c497fd382d00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="发布出错.png"><br>这时候只需要先执行这条命令:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
-<p>然后后再执行下面这条部署命令就行了！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d</div></pre></td></tr></table></figure></p>
-<p>配置了自己域名的还需要执行完下面的命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git fetch origin</div><div class="line">$ git merge origin/master</div></pre></td></tr></table></figure></p>
-<p>配置了自己域名的还需要修改<strong>CNAME</strong>文件，public文件夹下的<strong>CNAME</strong>也要修改，都填写上自己的域名即可！可以参考我填写的<a href="https://github.com/tiandawu/tiandawu.github.io/blob/master/CNAME" target="_blank" rel="external"><font color="#0000FF"><strong>CNAME文件</strong></font></a>。<br>配置了自己域名的最后执行下面命令也能访问了：（可以通过：<code>yourname.github.io</code>或<code>你的域名</code>访问）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git add .</div><div class="line">$ git commit -m <span class="string">"输入自己的描述信息"</span></div><div class="line">$ git push origin master</div><div class="line">$ hexo g</div><div class="line">$ hexo d</div></pre></td></tr></table></figure></p>
-<p>不管你有没有自己的域名，现在如果你能通过以上两种方式看到这个页面就算你搭建成功了（恭喜！）：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1440183-019d0909d2027364.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Ok.png">  </p>
-<hr>
-<h3 id="四-配置Next主题"><a href="#四-配置Next主题" class="headerlink" title="四.配置Next主题"></a>四.配置Next主题</h3><p>Hexo提供了很多的主题，可以参考<a href="https://hexo.io/themes/" target="_blank" rel="external"><font color="#0000FF">丰富多彩的Hexo主题</font></a>，这里我选用的是配置Next主题，<a href="http://tiandawu.github.io/"><font color="#0000FF">我的博客样式</font></a>。具体配置详情，请参考：<a href="http://theme-next.iissnan.com/" target="_blank" rel="external"><font color="#0000FF">Next主题官方文档</font></a>。  </p>
-<hr>
-<h3 id="五-搭建遇到的坑"><a href="#五-搭建遇到的坑" class="headerlink" title="五.搭建遇到的坑"></a>五.搭建遇到的坑</h3><p>我在将主题设置成Next后，在将仓库向github提交了一遍，结果就收到一封这样的邮件：<br><img src="http://upload-images.jianshu.io/upload_images/1440183-be87e8829b5b2cee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="erro info.png">  </p>
-<p>于是我就点了链接，看到给的解决方案是这样的：  </p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1440183-821266a9450dba75.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="解决方案.png"><br>于是我就按照这个方法做，结果出现下面的错误：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1440183-3282635780f355e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="submodule error.png">  </p>
-<p>经过几番尝试，我将之前更新下来的主题全删掉，然后输入下面的命令去下载主题：</p>
-<p><pre><code>git submodule add <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next</a></code></pre><br>如图：  </p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1440183-28ddd196af0bd752.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="添加submodule.png">  </p>
-<p>这样更新下主题后，发现在：<code>yourname.github.io</code>文件夹下会多出一个<strong>.gitmodules</strong>的文件，然后我在按照之前的方法尝试，结果就不出现那个错误，将文件push到远程仓库也不会收到刚才那邮件了，这个坑就这样被填上了！</p>
-
+            <p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这篇文章主要讲解怎么利用Hexo和github来搭建自己的博客！如果你正想搭建一个属于自己的博客，那么就不妨动手跟我一起来搭建 ！<br></p>
+            <p class="article-more-link">
+                <a href="/2016/01/14/BuildMyBlog/#more">阅读全文</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -342,72 +306,13 @@
         </footer>
     </div>
     
-        
-<nav id="article-nav">
-    
-        <a href="/2016/01/15/QQ红包插件实现/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    QQ抢红包插件实现
-                
-            </div>
-        </a>
-    
-    
-</nav>
-
-
-    
 </article>
 
 
-    
-    <section id="comments">
-    
-        
-    <div class="ds-thread" data-thread-key="2016/01/14/BuildMyBlog/" data-title="Hexo+github搭建个人博客" data-url="http://tiandawu.github.io/2016/01/14/BuildMyBlog/"></div>
-    <style>
-        #ds-thread #ds-reset .ds-textarea-wrapper {
-            background: none;
-        }
-        #ds-reset .ds-avatar img {
-            box-shadow: none;
-        }
-        #ds-reset .ds-gradient-bg {
-            background: #f7f7f7;
-        }
-        #ds-thread #ds-reset li.ds-tab a {
-            border-radius: 3px;
-        }
-        #ds-thread #ds-reset .ds-post-button {
-            color: white;
-            border: none;
-            box-shadow: none;
-            background: #d32;
-            text-shadow: none;
-            font-weight: normal;
-            font-family: 'Microsoft Yahei';
-        }
-        #ds-thread #ds-reset .ds-post-button:hover {
-            color: white;
-            background: #DE594C;
-        }
-        #ds-thread #ds-reset .ds-post-button:active {
-            background: #d32;
-        }
-        #ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current {
-            color: white;
-            background: #d32;
-            box-shadow: none;
-            text-shadow: none;
-            font-weight: normal;
-        }
-    </style>
 
-    
-    </section>
-
+    <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
 </section>
             
                 <aside id="sidebar">
